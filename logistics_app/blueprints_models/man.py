@@ -6,7 +6,6 @@ from blueprints_models.truck_models import Truck_Models
 class Man(CompanyTrucks):
     def __init__(self, vehicle_id: int, model_name: str, capacity_kg: int, max_range: int):
         super().__init__(vehicle_id, model_name, capacity_kg, max_range)
-        self.number_of_vehicles = 15
         self.model_name = model_name
 
     @property

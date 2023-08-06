@@ -14,3 +14,9 @@ def try_parse_int(s):
         return int(s)
     except:
         raise ValueError('Invalid value for mililitres. Should be an integer.')
+    
+def try_parse_str(s):
+    try:
+        return str(s)
+    except:
+        raise ValueError('Invalid value for string. Should be an string.')

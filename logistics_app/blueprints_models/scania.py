@@ -5,8 +5,8 @@ from blueprints_models.truck_models import Truck_Models
 class Scania(CompanyTrucks):
     def __init__(self, vehicle_id: int, model_name: str, capacity_kg: int, max_range: int):
         super().__init__(vehicle_id, model_name, capacity_kg, max_range)
-        self.number_of_vehicles = 10
         self.model_name = model_name
+        self.scanias = []
     
     @property
     def model_name(self):
