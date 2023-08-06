@@ -1,4 +1,6 @@
 from commands.create_scania import CreateScaniaCommand
+from commands.create_man import CreateManCommand
+from commands.create_actros import CreateActrosCommand
 
 class CommandFactory:
     def __init__(self, data):
@@ -9,5 +11,9 @@ class CommandFactory:
 
         if cmd.lower() == "createscania":
             return CreateScaniaCommand(params, self._app_data)
+        if cmd.lower() == "createman":
+            return CreateManCommand(params, self._app_data)
+        if cmd.lower() == "createactros":
+            return CreateActrosCommand(params, self._app_data)
         
         raise ValueError(f'Invalid command name: {cmd}!')

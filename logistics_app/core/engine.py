@@ -15,6 +15,4 @@ class Engine:
             command = self._command_factory.create(input_line) #addtest
             output.append(command.execute())
 
-            #veche ot komandite trqq napraim execute
-
         print('\n'.join(output))

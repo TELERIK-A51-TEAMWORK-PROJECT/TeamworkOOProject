@@ -1,4 +1,3 @@
-
 class Truck_Models:
     SCANIA = 'Scania'
     MAN = 'Man'

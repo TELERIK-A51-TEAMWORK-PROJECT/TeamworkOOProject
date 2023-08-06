@@ -6,10 +6,18 @@ class Scania(CompanyTrucks):
     def __init__(self, vehicle_id: int, model_name: str, capacity_kg: int, max_range: int):
         super().__init__(vehicle_id, model_name, capacity_kg, max_range)
         self.number_of_vehicles = 10
+        self.model_name = model_name
     
     @property
     def model_name(self):
-        return Truck_Models.SCANIA(self._model_name)
+        return self._model_name
+    
+    @model_name.setter
+    def model_name(self, value):
+
+        if value != Truck_Models.SCANIA:
+            raise ValueError(f'Invalid name: {value}')
+        self._model_name = value
     
     @property
     def max_range(self):
