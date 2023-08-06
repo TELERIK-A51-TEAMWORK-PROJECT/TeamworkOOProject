@@ -1,7 +1,32 @@
 from blueprints_models.company_trucks import CompanyTrucks
+from blueprints_models.truck_models import Truck_Models
 
 
 class Scania(CompanyTrucks):
-    def __init__(self, vehicle_id: int, model_name: str, capacity_kg: int, max_range: int, number_of_vehicles: int):
-        super().__init__(vehicle_id, model_name, capacity_kg, max_range, number_of_vehicles)
-        ...
+    def __init__(self, vehicle_id: int, model_name: str, capacity_kg: int, max_range: int):
+        super().__init__(vehicle_id, model_name, capacity_kg, max_range)
+        self.number_of_vehicles = 10
+    
+    @property
+    def model_name(self):
+        return Truck_Models.SCANIA(self._model_name)
+    
+    @property
+    def max_range(self):
+        return self._max_range
+    
+    @max_range.setter
+    def max_range(self,value):
+        if value < 0 or value > 8000:
+            raise ValueError(f'Invalid range for truck with model Scania')
+        self._max_range = value
+
+    @property
+    def vehicle_id(self):
+        return self._vehicle_id
+    
+    @vehicle_id.setter
+    def vehicle_id(self,value):
+        if value < 1001 or value > 1010:
+            raise ValueError(f'Invalid id for truck with model Scania')
+        self._vehicle_id = value
