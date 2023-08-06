@@ -21,6 +21,6 @@ class CreateRouteCommand:
         
 
         if self._app_data.create_route(route_id, truck_id, destinations):
-            return f'A route with id: [{route_id}] has already been created!'
+            return f'A route with id: [{route_id}] has been created!'
 
         return f'Route: [{destinations}] with id: [{route_id}] has been created!'

@@ -17,7 +17,7 @@ class CreateActrosCommand:
         max_range = try_parse_int(max_range)
         vehicle_id = try_parse_int(vehicle_id)
 
-        if self._app_data.vehicle_exists(name):
+        if self._app_data.vehicle_exists(vehicle_id):
             raise ValueError(f'Truck Actros with id: [{vehicle_id}] already exists!')
         self._app_data.create_actros(vehicle_id,name,capacity,max_range)
 

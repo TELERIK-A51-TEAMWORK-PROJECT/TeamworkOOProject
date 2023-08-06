@@ -44,5 +44,11 @@ class ApplicationData:
         route = RouteOfTrucks(route_id, truck_id, destinations)
         return route
 
-    def vehicle_exists(self, name) -> bool:
-        return name in [this.name for this in self._trucks]
+    def vehicle_exists(self,vehicle_id):
+        return vehicle_id in [this.vehicle_id for this in self._trucks]
+
+    def route_exits(self,route):
+        pass # to be continued
+    
+    def find_route_byid(self,id):
+        pass # to be continued
