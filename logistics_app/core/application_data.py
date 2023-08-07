@@ -12,6 +12,7 @@ class ApplicationData:
     def __init__(self):
         self._trucks = []
         self._customers = []
+        self._routes = []
 
     @property
     def trucks(self):
@@ -44,6 +45,7 @@ class ApplicationData:
     
     def create_route(self, route_id, truck_id, destinations):
         route = RouteOfTrucks(route_id, truck_id, destinations)
+        self._routes.append(route)
         return route
     
     def create_customer(self,locations,first_name,last_name,telephone,email):
@@ -54,8 +56,19 @@ class ApplicationData:
     def vehicle_exists(self,vehicle_id):
         return vehicle_id in [this.vehicle_id for this in self._trucks]
 
-    def route_exits(self,route):
-        pass # to be continued
+    def route_exits(self,route_id):
+        return route_id in [this.route_id for this in self._routes]
     
-    def find_route_byid(self,id):
-        pass # to be continued
+    def find_route_byid(self,id) -> RouteOfTrucks:
+        for route in self._routes:
+            if route.route_id == id:
+                return route
+        else:
+            raise ValueError(f'Route with id: [{id}] does not exist!')
+        
+    def find_customer_byemail(self,email) -> Customer:
+        for customer in self._customers:
+            if customer.email == email:
+                return customer
+        else:
+            raise ValueError(f'Customer with this email does not exist!')

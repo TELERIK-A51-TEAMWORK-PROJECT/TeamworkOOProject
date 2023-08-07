@@ -3,6 +3,7 @@ from commands.create_man import CreateManCommand
 from commands.create_actros import CreateActrosCommand
 from commands.create_route import CreateRouteCommand
 from commands.create_customer import CreateCustomerCommand
+from commands.create_package import CreatePackageCommand
 
 class CommandFactory:
     def __init__(self, data):
@@ -21,5 +22,7 @@ class CommandFactory:
             return CreateRouteCommand(params, self._app_data)
         if cmd.lower() == "createcustomer":
             return CreateCustomerCommand(params,self._app_data)
+        if cmd.lower() == "createpackage":
+            return CreatePackageCommand(params,self._app_data)
         
         raise ValueError(f'Invalid command name: {cmd}!')

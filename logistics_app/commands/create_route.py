@@ -23,7 +23,10 @@ class CreateRouteCommand:
         for current_location in splitted_destinations:
             if not Locations.from_string(current_location):
                 pass
-
+        
         truck = self._app_data.find_truck_by_id(truck_id)
+        if self._app_data.route_exits(route_id):
+            raise ValueError(f'Route with id: [{route_id}] is already taken by {truck.model_name} with id: [{truck_id}]')
+        
         if self._app_data.create_route(route_id, truck_id, destinations):
             return f'Truck: [{truck_id}] {truck.model_name} with Route: [{destinations}] route id: [{route_id}] has been created!'
