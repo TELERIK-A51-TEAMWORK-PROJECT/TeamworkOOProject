@@ -6,7 +6,6 @@ class CompanyTrucks:
         self._model_name = model_name
         self.capacity_kg = capacity_kg
         self.max_range = max_range
-        self.number_of_vehicles = 0
 
     # Id checker
     @property

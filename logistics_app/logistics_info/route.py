@@ -7,7 +7,7 @@ class RouteOfTrucks:
         self.route_id = route_id
         self.truck_id = truck_id
         self.destinations = destinations.split('->')
-        self.routes = []
+        self._routes = []
         self.km = 0
 
         for key_current_location, value in Locations.all_locations.items():
@@ -15,3 +15,7 @@ class RouteOfTrucks:
  
         self.routes.append([self.route_id, self.truck_id, self.destinations])
                             # 1                 1001       ['SYD', 'MEL', 'ASP']
+
+    @property
+    def routes(self):
+        return self._routes

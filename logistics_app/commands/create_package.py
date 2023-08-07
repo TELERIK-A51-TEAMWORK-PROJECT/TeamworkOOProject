@@ -1,24 +1,27 @@
 from core.application_data import ApplicationData
-from blueprints_models.truck_models import Truck_Models
-from commands.valid_helpers import try_parse_int, validate_params_count
+from commands.valid_helpers import try_parse_int, validate_params_count, try_parse_str
 
 #Todo
 class CreatePackageCommand:
-    ...
-    # def __init__(self, params, app_data: ApplicationData):
-    #     validate_params_count(params, 4)
-    #     self._params = params
-    #     self._app_data = app_data
+    def __init__(self, params, app_data: ApplicationData):
+        validate_params_count(params, 4)
+        self._params = params
+        self._app_data = app_data
 
-    # def execute(self):
-    #     # vehicle_id,name,capacity,max_range = self._params
-    #     # name = Truck_Models.from_string(name)
-    #     # capacity = try_parse_int(capacity)
-    #     # max_range = try_parse_int(max_range)
-    #     # vehicle_id = try_parse_int(vehicle_id)
+    def execute(self):
+        package_id,package_name,package_kg,email = self._params
+        package_id = try_parse_int(package_id)
+        package_name = try_parse_str(package_name)
+        package_kg = try_parse_int(package_kg)
 
-    #     # if self._app_data.vehicle_exists(vehicle_id):
-    #     #     raise ValueError(f'Truck Man with id: [{vehicle_id}] already exists!')
-    #     # self._app_data.create_man(vehicle_id,name,capacity,max_range)
 
-    #     # return f'Truck Man with id: [{vehicle_id}] was created!'
+        customer = self._app_data.find_customer_byemail(email)
+
+        if self._app_data.package_exits(package_id):
+            raise ValueError(f'Package with id: [{package_id}] alredy exists!')
+        self._app_data.create_package(package_id, package_name, package_kg, email)
+
+        result = f'Package has been created with id: [{package_id}]\n'
+        result += f'Info of package: Name: {package_name} | Kilograms: {package_kg} | Customer Email: ({customer.email})\n'
+        result += f'Wating for truck to pick up..'
+        return result

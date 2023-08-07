@@ -4,6 +4,7 @@ from blueprints_models.scania import Scania
 from blueprints_models.man import Man
 from logistics_info.route import RouteOfTrucks
 from logistics_info.customer_info import Customer
+from logistics_info.package import Package
 
 class ApplicationData:
     SCANIA_NUMBER_OF_TRUCKS = 10
@@ -13,10 +14,23 @@ class ApplicationData:
         self._trucks = []
         self._customers = []
         self._routes = []
+        self._packages = []
+
+    @property
+    def customers(self):
+        return tuple(self._customers)
+
+    @property
+    def routes(self):
+        return tuple(self._routes)
 
     @property
     def trucks(self):
         return tuple(self._trucks)
+    
+    @property
+    def packages(self):
+        return tuple(self._packages)
     
     def find_truck_by_id(self, id) -> CompanyTrucks:
         for truck in self._trucks:
@@ -52,12 +66,19 @@ class ApplicationData:
         customer = Customer(locations,first_name,last_name,telephone,email)
         self._customers.append(customer)
         return customer
-
+    def create_package(self,package_id, package_name, package_kg,email):
+        package = Package(package_id, package_name, package_kg,email)
+        self._packages.append(package)
+        return package
+    #Trucks
     def vehicle_exists(self,vehicle_id):
         return vehicle_id in [this.vehicle_id for this in self._trucks]
-
+    #Routes
     def route_exits(self,route_id):
         return route_id in [this.route_id for this in self._routes]
+    #Packages
+    def package_exits(self,package_id):
+        return package_id in [this.package_id for this in self._packages]
     
     def find_route_byid(self,id) -> RouteOfTrucks:
         for route in self._routes:
@@ -72,3 +93,10 @@ class ApplicationData:
                 return customer
         else:
             raise ValueError(f'Customer with this email does not exist!')
+        
+    def find_package_byid(self,package_id) -> Package:
+        for package in self._packages:
+            if package.package_id == package_id:
+                return package
+        else:
+            raise ValueError(f'Package with id: [{package_id}] does not exist!')

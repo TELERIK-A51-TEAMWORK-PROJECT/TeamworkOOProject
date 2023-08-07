@@ -4,6 +4,7 @@ from commands.create_actros import CreateActrosCommand
 from commands.create_route import CreateRouteCommand
 from commands.create_customer import CreateCustomerCommand
 from commands.create_package import CreatePackageCommand
+from commands.assign_package_to_truck import AssignPackageToTruck
 
 class CommandFactory:
     def __init__(self, data):
@@ -24,5 +25,7 @@ class CommandFactory:
             return CreateCustomerCommand(params,self._app_data)
         if cmd.lower() == "createpackage":
             return CreatePackageCommand(params,self._app_data)
+        if cmd.lower() == "assignpackage":
+            return AssignPackageToTruck(params,self._app_data)
         
         raise ValueError(f'Invalid command name: {cmd}!')
