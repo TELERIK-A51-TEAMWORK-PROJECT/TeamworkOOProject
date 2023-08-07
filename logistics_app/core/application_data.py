@@ -57,8 +57,8 @@ class ApplicationData:
         ApplicationData.MAN_NUMBER_OF_TRUCKS -= 1
         return man
     
-    def create_route(self, route_id, truck_id, destinations):
-        route = RouteOfTrucks(route_id, truck_id, destinations)
+    def create_route(self, route_id, truck_id, destinations, start_time):
+        route = RouteOfTrucks(route_id, truck_id, destinations, start_time)
         self._routes.append(route)
         return route
     
