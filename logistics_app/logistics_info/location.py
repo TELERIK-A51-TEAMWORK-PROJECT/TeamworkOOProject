@@ -29,7 +29,7 @@ class Locations:
         'DAR': 3027,
         'PER': 2785
     }
-    ASP = "Alice Springs"
+    ASP = "AliceSprings"
     asp_distance = {
         'SYD': 2762,
         'MEL': 2255,

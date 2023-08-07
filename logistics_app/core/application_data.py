@@ -3,6 +3,7 @@ from blueprints_models.actros import Actros
 from blueprints_models.scania import Scania
 from blueprints_models.man import Man
 from logistics_info.route import RouteOfTrucks
+from logistics_info.customer_info import Customer
 
 class ApplicationData:
     SCANIA_NUMBER_OF_TRUCKS = 10
@@ -10,6 +11,7 @@ class ApplicationData:
     ACTROS_NUMBER_OF_TRUCKS = 15
     def __init__(self):
         self._trucks = []
+        self._customers = []
 
     @property
     def trucks(self):
@@ -43,6 +45,11 @@ class ApplicationData:
     def create_route(self, route_id, truck_id, destinations):
         route = RouteOfTrucks(route_id, truck_id, destinations)
         return route
+    
+    def create_customer(self,locations,first_name,last_name,telephone,email):
+        customer = Customer(locations,first_name,last_name,telephone,email)
+        self._customers.append(customer)
+        return customer
 
     def vehicle_exists(self,vehicle_id):
         return vehicle_id in [this.vehicle_id for this in self._trucks]
