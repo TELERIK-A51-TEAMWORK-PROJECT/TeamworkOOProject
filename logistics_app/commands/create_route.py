@@ -19,8 +19,11 @@ class CreateRouteCommand:
         if not self._app_data.find_truck_by_id(truck_id):
             raise ValueError(f'No such truck with id: [{truck_id}]!')
         
+        splitted_destinations = destinations.split('->')
+        for current_location in splitted_destinations:
+            if not Locations.from_string(current_location):
+                pass
 
+        truck = self._app_data.find_truck_by_id(truck_id)
         if self._app_data.create_route(route_id, truck_id, destinations):
-            return f'A route with id: [{route_id}] has been created!'
-
-        return f'Route: [{destinations}] with id: [{route_id}] has been created!'
+            return f'Truck: [{truck_id}] {truck.model_name} with Route: [{destinations}] route id: [{route_id}] has been created!'

@@ -83,6 +83,6 @@ class Locations:
     @classmethod
     def from_string(cls, location):
         if location not in [cls.SYD, cls.MEL, cls.ADL, cls.ASP, cls.BRI, cls.DAR, cls.PER]:
-            raise ValueError(f'There is no such location as {location}!')
+            raise ValueError(f'There is no {location} in the Australian region')
 
         return location
