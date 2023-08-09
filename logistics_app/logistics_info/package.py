@@ -2,11 +2,12 @@ from logistics_info.package_status import PackageStatus
 
 
 class Package:
-    def __init__(self,package_id: int, package_name: str, package_kg: int, email: str):
+    def __init__(self,package_id: int, package_name: str, package_kg: int, email: str, end_location: str):
         self.package_id = package_id
         self.package_name = package_name
         self.package_kg = package_kg
         self.email = email
+        self.end_location = end_location
         self.package_status = PackageStatus.OPEN
 
     @property
@@ -35,7 +36,7 @@ class Package:
     
     @package_kg.setter
     def package_kg(self,value):
-        if value < 0 and value > 100:
+        if value < 0 or value > 100:
             raise ValueError(f'Invalid package kilograms (too high or negative)')
         self._package_kg = value
     

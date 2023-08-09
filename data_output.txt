@@ -1,0 +1,21 @@
+------------------------------------------------------------------------------
+Truck Scania with id: [1003] was created!
+------------------------------------------------------------------------------
+Route with id: [1] has been created:
+Route: [Sydney -> (08/07/2023, 10:00:00) -> Melbourne -> (08/07/2023, 20:00:00) -> Perth (08/08/2023, 06:00:00)]
+Assigned to truck: [1003] Scania
+------------------------------------------------------------------------------
+Customer was created in (Sydney):
+Info: [Borislav Bonev] | Number: [0899999999] | Email: (bobi@abv.bg)
+------------------------------------------------------------------------------
+Package has been created with id: [1] Status: [OPEN]
+Info of package: Name: Televizor | Kilograms: 23 | Customer Email: (bobi@abv.bg) Delivery location: (Melbourne)
+Wating for truck to pick up..
+------------------------------------------------------------------------------
+Package [1] has been assigned to truck:
+Truck Info: [1003] Scania
+Current route: Sydney -> Melbourne -> Perth
+Departure time - expected delivery: Sydney (08/07/2023, 10:00:00) Melbourne (08/07/2023, 20:00:00)
+Kilograms left on the truck: (3977)
+Status: PROCESSING
+------------------------------------------------------------------------------

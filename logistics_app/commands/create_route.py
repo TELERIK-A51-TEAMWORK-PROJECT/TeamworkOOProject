@@ -42,7 +42,7 @@ class CreateRouteCommand:
             result_dates = ' '.join(result)
             result = f'Route with id: [{route_id}] has been created:\n'
             result += f'Route: [{result_dates}]\n'
-            result += f'Assigned to truck: [{truck_id}]\n'
+            result += f'Assigned to truck: [{truck_id}] {ApplicationData.find_nameoftruck_by_id(truck_id)}\n'
             result += f'------------------------------------------------------------------------------'
             return result
         

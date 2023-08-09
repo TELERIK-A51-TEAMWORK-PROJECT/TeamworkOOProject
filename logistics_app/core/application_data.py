@@ -15,6 +15,21 @@ class ApplicationData:
         self._customers = []
         self._routes = []
         self._packages = []
+    
+    def find_nameoftruck_by_id(id):
+        name = ''
+        #Scania
+        if id >= 1001 or id <= 1010:
+            name = 'Scania'
+            return name
+        #Man
+        if id >= 1011 or id <= 1025:
+            name = 'Man'
+            return name
+        #Actros
+        if id >= 1026 or id <= 1040:
+            name = 'Actros'
+            return name
 
     @property
     def customers(self):
@@ -37,7 +52,7 @@ class ApplicationData:
             if truck.vehicle_id == id:
                 return truck
         else:
-            raise ValueError(f'Truck with id: [{id}] does not exist!')
+            raise ValueError(f'Truck: [{id}] {ApplicationData.find_nameoftruck_by_id(id)} does not exist!')
         
     def create_scania(self, vehicle_id,capacity, max_range):
         scania = Scania(vehicle_id,capacity, max_range)
@@ -66,8 +81,8 @@ class ApplicationData:
         customer = Customer(locations,first_name,last_name,telephone,email)
         self._customers.append(customer)
         return customer
-    def create_package(self,package_id, package_name, package_kg,email):
-        package = Package(package_id, package_name, package_kg,email)
+    def create_package(self,package_id, package_name, package_kg,email, end_location):
+        package = Package(package_id, package_name, package_kg,email, end_location)
         self._packages.append(package)
         return package
     #Trucks
@@ -100,3 +115,4 @@ class ApplicationData:
                 return package
         else:
             raise ValueError(f'Package with id: [{package_id}] does not exist!')
+        

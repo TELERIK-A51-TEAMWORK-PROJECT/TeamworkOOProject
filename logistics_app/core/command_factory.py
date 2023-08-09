@@ -28,4 +28,4 @@ class CommandFactory:
         if cmd.lower() == "assignpackage":
             return AssignPackageToTruck(params,self._app_data)
         
-        raise ValueError(f'Invalid command name: {cmd}!')
+        raise ValueError(f'This command: [{cmd}] doesn\'t exist!')

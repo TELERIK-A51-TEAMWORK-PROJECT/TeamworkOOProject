@@ -1,9 +1,8 @@
 class PackageStatus:
     OPEN = 'OPEN'
-    PROCESSING = 'PROCESSING'
-    DELIVERED = 'DELIVERED'    
+    PROCESSING = 'PROCESSING'    
 
-    STATUS = [OPEN, PROCESSING, DELIVERED]
+    STATUS = [OPEN,PROCESSING]
 
 
     @classmethod
