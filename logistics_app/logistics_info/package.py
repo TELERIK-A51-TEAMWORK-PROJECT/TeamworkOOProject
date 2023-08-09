@@ -1,9 +1,13 @@
+from logistics_info.package_status import PackageStatus
+
+
 class Package:
     def __init__(self,package_id: int, package_name: str, package_kg: int, email: str):
         self.package_id = package_id
         self.package_name = package_name
         self.package_kg = package_kg
         self.email = email
+        self.package_status = PackageStatus.OPEN
 
     @property
     def package_id(self):

@@ -21,7 +21,8 @@ class CreatePackageCommand:
             raise ValueError(f'Package with id: [{package_id}] alredy exists!')
         self._app_data.create_package(package_id, package_name, package_kg, email)
 
-        result = f'Package has been created with id: [{package_id}]\n'
+        package = self._app_data.find_package_byid(package_id)
+        result = f'Package has been created with id: [{package_id}] Status: [{package.package_status}]\n'
         result += f'Info of package: Name: {package_name} | Kilograms: {package_kg} | Customer Email: ({customer.email})\n'
         result += f'Wating for truck to pick up..'
         return result
