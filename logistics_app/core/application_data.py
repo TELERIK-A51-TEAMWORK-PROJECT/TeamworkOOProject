@@ -39,20 +39,20 @@ class ApplicationData:
         else:
             raise ValueError(f'Truck with id: [{id}] does not exist!')
         
-    def create_scania(self, vehicle_id, name, capacity, max_range):
-        scania = Scania(vehicle_id, name, capacity, max_range)
+    def create_scania(self, vehicle_id,capacity, max_range):
+        scania = Scania(vehicle_id,capacity, max_range)
         self._trucks.append(scania)
         ApplicationData.SCANIA_NUMBER_OF_TRUCKS -= 1
         return scania
     
-    def create_actros(self,vehicle_id, name, capacity, max_range):
-        actros = Actros(vehicle_id, name, capacity, max_range)
+    def create_actros(self,vehicle_id,capacity, max_range):
+        actros = Actros(vehicle_id,capacity, max_range)
         self._trucks.append(actros)
         ApplicationData.ACTROS_NUMBER_OF_TRUCKS -= 1
         return actros
     
-    def create_man(self, vehicle_id, name, capacity, max_range):
-        man = Man(vehicle_id,name,capacity,max_range)
+    def create_man(self, vehicle_id,capacity, max_range):
+        man = Man(vehicle_id,capacity,max_range)
         self._trucks.append(man)
         ApplicationData.MAN_NUMBER_OF_TRUCKS -= 1
         return man

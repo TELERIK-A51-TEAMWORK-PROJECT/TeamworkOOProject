@@ -1,23 +1,10 @@
 from blueprints_models.company_trucks import CompanyTrucks
-from blueprints_models.truck_models import Truck_Models
 
 
 class Scania(CompanyTrucks):
-    def __init__(self, vehicle_id: int, model_name: str, capacity_kg: int, max_range: int):
-        super().__init__(vehicle_id, model_name, capacity_kg, max_range)
-        self.model_name = model_name
+    def __init__(self, vehicle_id: int, capacity_kg: int, max_range: int):
+        super().__init__(vehicle_id, capacity_kg, max_range)
         self.scanias = []
-    
-    @property
-    def model_name(self):
-        return self._model_name
-    
-    @model_name.setter
-    def model_name(self, value):
-
-        if value != Truck_Models.SCANIA:
-            raise ValueError(f'Invalid name: {value}')
-        self._model_name = value
     
     @property
     def max_range(self):

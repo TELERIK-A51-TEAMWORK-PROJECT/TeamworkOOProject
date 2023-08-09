@@ -27,7 +27,7 @@ class CreateRouteCommand:
         
         truck = self._app_data.find_truck_by_id(truck_id)
         if self._app_data.route_exits(route_id):
-            raise ValueError(f'Route with id: [{route_id}] is already taken by {truck.model_name} with id: [{truck_id}]')
+            raise ValueError(f'Route with id: [{route_id}] is already taken by [{truck_id}]')
 
         if self._app_data.create_route(route_id, truck_id, destinations, start_time):
             route = self._app_data.find_route_byid(route_id)
@@ -40,5 +40,9 @@ class CreateRouteCommand:
                 if i < len(route.destinations_with_dates) - 2:
                     result.append("->")
             result_dates = ' '.join(result)
-            return f'Truck: [{truck_id}] {truck.model_name} with Route: {result_dates} route id: [{route_id}] has been created!'
+            result = f'Route with id: [{route_id}] has been created:\n'
+            result += f'Route: [{result_dates}]\n'
+            result += f'Assigned to truck: [{truck_id}]\n'
+            result += f'------------------------------------------------------------------------------'
+            return result
         

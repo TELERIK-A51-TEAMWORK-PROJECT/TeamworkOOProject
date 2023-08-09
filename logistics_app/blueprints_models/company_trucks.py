@@ -1,9 +1,7 @@
-from blueprints_models.truck_models import Truck_Models
 
 class CompanyTrucks:
-    def __init__(self, vehicle_id: int, model_name: str, capacity_kg: int, max_range: int):
+    def __init__(self, vehicle_id: int, capacity_kg: int, max_range: int):
         self.vehicle_id = vehicle_id
-        self._model_name = model_name
         self.capacity_kg = capacity_kg
         self.max_range = max_range
 
@@ -17,11 +15,6 @@ class CompanyTrucks:
         if value < 1001 or value > 1040:
             raise ValueError('The id you are trying to input is invalid(too low or too high)')
         self._vehicle_id = value
-
-    # Model name checker
-    @property
-    def model_name(self):
-        return Truck_Models.from_string(self._model_name)
     
     #Capacity checker
     @property

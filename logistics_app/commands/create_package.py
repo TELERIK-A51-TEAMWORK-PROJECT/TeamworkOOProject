@@ -24,5 +24,6 @@ class CreatePackageCommand:
         package = self._app_data.find_package_byid(package_id)
         result = f'Package has been created with id: [{package_id}] Status: [{package.package_status}]\n'
         result += f'Info of package: Name: {package_name} | Kilograms: {package_kg} | Customer Email: ({customer.email})\n'
-        result += f'Wating for truck to pick up..'
+        result += f'Wating for truck to pick up..\n'
+        result += f'------------------------------------------------------------------------------'
         return result

@@ -17,4 +17,7 @@ class CreateCustomerCommand:
         
         self._app_data.create_customer(locations,first_name,last_name,telephone,email)
 
-        return f'In {locations} customer: {first_name} {last_name} with number: {telephone} and email: {email} was created!'
+        result = f'Customer was created in ({locations}):\n'
+        result +=f'Info: [{first_name} {last_name}] | Number: [{telephone}] | Email: ({email})\n'
+        result +=f'------------------------------------------------------------------------------'
+        return result
