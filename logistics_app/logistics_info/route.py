@@ -24,12 +24,41 @@ class RouteOfTrucks:
         self.to_hours = []
 
         for key_current_location, value in Locations.all_locations.items():
-           last_elements = self.destinations[-1]
-           last_index = self.destinations.index(last_elements)
-           if len(self.list_of_kms) == len(self.destinations) - 1:
-               break
-           self.km = calculate_destionation_km(key_current_location, value, self.destinations, self.km) #Изчислява километрите на даденият маршрут
-           self.list_of_kms.append(self.km)
+            last_elements = self.destinations[-1]
+            last_index = self.destinations.index(last_elements)
+            if len(self.list_of_kms) == len(self.destinations) - 1:
+                break
+            self.km = calculate_destionation_km(key_current_location, value, self.destinations, self.km) #Изчислява километрите на даденият маршрут
+
+
+            if self.truck_id >= 1001 and self.truck_id <= 1010:
+                if self.km == None:
+                    pass
+                else:
+                    self.list_of_kms.append(self.km)
+                if sum(self.list_of_kms) > 8000:
+                    self.list_of_kms = []
+                    raise ValueError(f'Exceeding max range of Scania [{self.truck_id}]!')
+                
+            if self.truck_id >= 1011 and self.truck_id <= 1025:
+                if self.km == None:
+                    pass
+                else:
+                    self.list_of_kms.append(self.km)
+                if sum(self.list_of_kms) > 10000:
+                    self.list_of_kms = []
+                    raise ValueError(f'Exceeding max range of Scania [{self.truck_id}]!')
+                
+            if self.truck_id >= 1026 and self.truck_id <= 1040:
+                if self.km == None:
+                    pass
+                else:
+                    self.list_of_kms.append(self.km)
+                if sum(self.list_of_kms) > 13000:
+                    self.list_of_kms = []
+                    raise ValueError(f'Exceeding max range of Scania [{self.truck_id}]!')
+
+
         for kms in self.list_of_kms:
             kms /= 90
             ceiled = math.ceil(kms)

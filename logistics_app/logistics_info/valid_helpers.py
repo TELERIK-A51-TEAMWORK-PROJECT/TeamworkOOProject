@@ -6,17 +6,18 @@ def calculate_destionation_km(location_key, location_value, destionations, km):
     if index_location == len(destionations) - 1:
          return km
     current_location = destionations[index_location]
-    if location_key in destionations and location_key == destionations[index_location]:
-                current_location_index = destionations.index(current_location)
-                next_location = destionations[current_location_index + 1]
-                for second_key, second_value in location_value.items():
-                    current_location = destionations.index(location_key) #0
-                    if current_location == len(destionations) - 1:
-                        break
-                    if second_key == next_location:
-                        km += second_value
-                        break
-                current_location = next_location
-    index_location += 1
-    
-    return km
+
+    while current_location != destionations[-1]:
+        if location_key in destionations and location_key == destionations[index_location]:
+            current_location_index = destionations.index(current_location)
+            next_location = destionations[current_location_index + 1]
+            for second_key, second_value in location_value.items():
+                current_location = destionations.index(location_key) #0
+                if current_location == len(destionations) - 1:
+                    break
+                if second_key == next_location:
+                    km += second_value
+                    index_location += 1
+                    return km
+            current_location = next_location
+        break
