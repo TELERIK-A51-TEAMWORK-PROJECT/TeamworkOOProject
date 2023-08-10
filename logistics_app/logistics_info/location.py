@@ -4,7 +4,7 @@ class Locations:
         'Sydney': '',
         'Melbourne': 877,
         'Adelaide': 1376,
-        'Alice Springs': 2762,
+        'AliceSprings': 2762,
         'Brisbane': 909,
         'Darwin': 3935,
         'Perth': 4016
@@ -14,7 +14,7 @@ class Locations:
         'Sydney': 877,
         'Melbourne': '',
         'Adelaide': 725,
-        'Alice Springs': 2255,
+        'AliceSprings': 2255,
         'Brisbane': 1765,
         'Darwin': 3752,
         'Perth': 3509
@@ -24,7 +24,7 @@ class Locations:
         'Sydney': 1376,
         'Melbourne': 725,
         'Adelaide': '',
-        'Alice Springs': 1530,
+        'AliceSprings': 1530,
         'Brisbane': 1927,
         'Darwin': 3027,
         'Perth': 2785
@@ -34,7 +34,7 @@ class Locations:
         'Sydney': 2762,
         'Melbourne': 2255,
         'Adelaide': 1530,
-        'Alice Springs': '',
+        'AliceSprings': '',
         'Brisbane': 2993,
         'Darwin': 1497,
         'Perth': 2481
@@ -44,7 +44,7 @@ class Locations:
         'Sydney': 909,
         'Melbourne': 1765,
         'Adelaide': 1927,
-        'Alice Springs': 2993,
+        'AliceSprings': 2993,
         'Brisbane': '',
         'Darwin': 3426,
         'Perth': 4311
@@ -54,7 +54,7 @@ class Locations:
         'Sydney': 3935,
         'Melbourne': 3752,
         'Adelaide': 3027,
-        'Alice Springs': 1497,
+        'AliceSprings': 1497,
         'Brisbane': 3426,
         'Darwin': '',
         'Perth': 4025
@@ -64,7 +64,7 @@ class Locations:
         'Sydney': 4016,
         'Melbourne': 3509,
         'Adelaide': 2785,
-        'Alice Springs': 2481,
+        'AliceSprings': 2481,
         'Brisbane': 4311,
         'Darwin': 4025,
         'Perth': ''
@@ -74,7 +74,7 @@ class Locations:
         'Sydney': syd_distance,
         'Melbourne': mel_distance,
         'Adelaide': adl_distance,
-        'Alice Springs': asp_distance,
+        'AliceSprings': asp_distance,
         'Brisbane': bri_distance,
         'Darwin': dar_distance,
         'Perth': per_distance

@@ -18,7 +18,7 @@ class CreateScaniaCommand:
 
         if self._app_data.vehicle_exists(vehicle_id):
             raise ValueError(f'Truck Scania with id: [{vehicle_id}] already exists!')
-        self._app_data.create_scania(vehicle_id,capacity,max_range)
+        self._app_data.create_truck(vehicle_id,capacity,max_range)
 
         result = f'------------------------------------------------------------------------------\n'
         result += f'Truck Scania with id: [{vehicle_id}] was created!\n'

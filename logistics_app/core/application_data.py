@@ -54,23 +54,23 @@ class ApplicationData:
         else:
             raise ValueError(f'Truck: [{id}] {ApplicationData.find_nameoftruck_by_id(id)} does not exist!')
         
-    def create_scania(self, vehicle_id,capacity, max_range):
-        scania = Scania(vehicle_id,capacity, max_range)
-        self._trucks.append(scania)
-        ApplicationData.SCANIA_NUMBER_OF_TRUCKS -= 1
-        return scania
-    
-    def create_actros(self,vehicle_id,capacity, max_range):
-        actros = Actros(vehicle_id,capacity, max_range)
-        self._trucks.append(actros)
-        ApplicationData.ACTROS_NUMBER_OF_TRUCKS -= 1
-        return actros
-    
-    def create_man(self, vehicle_id,capacity, max_range):
-        man = Man(vehicle_id,capacity,max_range)
-        self._trucks.append(man)
-        ApplicationData.MAN_NUMBER_OF_TRUCKS -= 1
-        return man
+    def create_truck(self, vehicle_id, capacity, max_range):
+        #Scania
+        id = vehicle_id
+        current_truck = ''
+        if 1001 <= id <= 1010:
+            current_truck = Scania(vehicle_id,capacity, max_range)
+            ApplicationData.SCANIA_NUMBER_OF_TRUCKS -= 1
+        #Man
+        elif 1011 <= id <= 1025:
+            current_truck = Man(vehicle_id,capacity,max_range)
+            ApplicationData.MAN_NUMBER_OF_TRUCKS -= 1
+        #Actros
+        elif 1026 <= id <= 1040:
+            current_truck = Actros(vehicle_id,capacity,max_range)
+            ApplicationData.ACTROS_NUMBER_OF_TRUCKS -= 1
+        self._trucks.append(current_truck)
+        return current_truck
     
     def create_route(self, route_id, truck_id, destinations, start_time):
         route = RouteOfTrucks(route_id, truck_id, destinations, start_time)

@@ -64,6 +64,7 @@ class AssignPackageToTruck:
         if truck.capacity_kg == 0: 
             raise ValueError(f'No space left in the truck {truck_id} {ApplicationData.find_nameoftruck_by_id(truck_id)} assign package to another truck')
         truck.capacity_kg -= package.package_kg
+        
         result += f'Kilograms left on the truck: ({truck.capacity_kg})\n'
         result += f'Status: {PackageStatus.advance_status(current_status)}\n'
         result += f'------------------------------------------------------------------------------'

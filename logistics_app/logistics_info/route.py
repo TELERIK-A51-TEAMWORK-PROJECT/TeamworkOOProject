@@ -1,6 +1,6 @@
 from blueprints_models.truck_models import Truck_Models
 from logistics_info.location import Locations
-from logistics_info.valid_helpers import calculate_destionation_km
+from logistics_info.valid_helpers import calculate_destionation_km, calculate_maxrange_km
 from datetime import date, datetime, timedelta
 import math
 
@@ -24,39 +24,38 @@ class RouteOfTrucks:
         self.to_hours = []
 
         for key_current_location, value in Locations.all_locations.items():
-            last_elements = self.destinations[-1]
-            last_index = self.destinations.index(last_elements)
             if len(self.list_of_kms) == len(self.destinations) - 1:
                 break
             self.km = calculate_destionation_km(key_current_location, value, self.destinations, self.km) #Изчислява километрите на даденият маршрут
+            self.list_of_kms = calculate_maxrange_km(self.truck_id, self.list_of_kms, self.km)
 
 
-            if self.truck_id >= 1001 and self.truck_id <= 1010:
-                if self.km == None:
-                    pass
-                else:
-                    self.list_of_kms.append(self.km)
-                if sum(self.list_of_kms) > 8000:
-                    self.list_of_kms = []
-                    raise ValueError(f'Exceeding max range of Scania [{self.truck_id}]!')
-                
-            if self.truck_id >= 1011 and self.truck_id <= 1025:
-                if self.km == None:
-                    pass
-                else:
-                    self.list_of_kms.append(self.km)
-                if sum(self.list_of_kms) > 10000:
-                    self.list_of_kms = []
-                    raise ValueError(f'Exceeding max range of Man [{self.truck_id}]!')
-                
-            if self.truck_id >= 1026 and self.truck_id <= 1040:
-                if self.km == None:
-                    pass
-                else:
-                    self.list_of_kms.append(self.km)
-                if sum(self.list_of_kms) > 13000:
-                    self.list_of_kms = []
-                    raise ValueError(f'Exceeding max range of Actros [{self.truck_id}]!')
+        #TODO
+        if key_current_location == Locations.PER:
+            index_perth = self.destinations.index(key_current_location)
+            self.destinations.pop(index_perth)
+
+            for second_key, second_value in Locations.all_locations.items():
+                if len(self.list_of_kms) == len(self.destinations) - 1:
+                    break
+                self.km = calculate_destionation_km(second_key, second_value, self.destinations, self.km)
+                self.list_of_kms = calculate_maxrange_km(self.truck_id, self.list_of_kms, self.km)
+
+
+
+            is_breaked = False
+            first_el = self.destinations[0] #[Adelaid]
+            second_el = self.destinations[1] #[Melbourne]
+            for current_key, current_value in Locations.all_locations.items():
+                if is_breaked:
+                    break
+                if current_key == first_el:
+                    for second_key, second_value in current_value.items():
+                        if second_key == second_el:
+                            self.km = second_value
+                            self.list_of_kms = calculate_maxrange_km(self.truck_id, self.list_of_kms, self.km)
+                            is_breaked = True
+
 
 
         for kms in self.list_of_kms:
