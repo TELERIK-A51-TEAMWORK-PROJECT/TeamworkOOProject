@@ -45,11 +45,21 @@ class AssignPackageToTruck:
                         if i < len(route.destinations_with_dates) - 2:
                             result_dates.append("->")
                             result_dates.pop(-1)
-                            final_result_dates = ' '.join(result_dates)
+                            
+                    formatted_dates = ""
+                    for item in result_dates:
+                        if item.startswith('('):
+                            formatted_dates += item + ' | '
+                            continue
+                        else:
+                            formatted_dates += item + '->'
+                    formatted_dates = formatted_dates.rstrip(',| ')
+                        
+
                     result = f'Package [{package_id}] has been assigned to truck:\n'
                     result += f'Truck Info: [{truck_id}] {ApplicationData.find_nameoftruck_by_id(truck_id)}\n'
                     result += f'Current route: {" -> ".join(destinations)}\n'
-                    result += f'Departure time - expected delivery: {final_result_dates}\n'
+                    result += f'Departure time - Expected delivery time in different locations: {formatted_dates}\n'
         #CAPACITY CALCS
         if truck.capacity_kg == 0: 
             raise ValueError(f'No space left in the truck {truck_id} {ApplicationData.find_nameoftruck_by_id(truck_id)} assign package to another truck')

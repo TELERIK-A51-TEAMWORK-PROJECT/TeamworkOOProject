@@ -47,7 +47,7 @@ class RouteOfTrucks:
                     self.list_of_kms.append(self.km)
                 if sum(self.list_of_kms) > 10000:
                     self.list_of_kms = []
-                    raise ValueError(f'Exceeding max range of Scania [{self.truck_id}]!')
+                    raise ValueError(f'Exceeding max range of Man [{self.truck_id}]!')
                 
             if self.truck_id >= 1026 and self.truck_id <= 1040:
                 if self.km == None:
@@ -56,7 +56,7 @@ class RouteOfTrucks:
                     self.list_of_kms.append(self.km)
                 if sum(self.list_of_kms) > 13000:
                     self.list_of_kms = []
-                    raise ValueError(f'Exceeding max range of Scania [{self.truck_id}]!')
+                    raise ValueError(f'Exceeding max range of Actros [{self.truck_id}]!')
 
 
         for kms in self.list_of_kms:

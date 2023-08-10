@@ -22,7 +22,7 @@ class Actros(CompanyTrucks):
     
     @max_range.setter
     def max_range(self,value):
-        if value < 0 or value > 13000:
+        if value < 13000 or value > 13000:
             raise ValueError(f'Invalid range for truck with model Actros')
         self._max_range = value
 

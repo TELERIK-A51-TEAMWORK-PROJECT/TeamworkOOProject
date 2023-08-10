@@ -12,7 +12,7 @@ class Scania(CompanyTrucks):
     
     @max_range.setter
     def max_range(self,value):
-        if value < 0 or value > 8000:
+        if value < 8000 or value > 8000:
             raise ValueError(f'Invalid range for truck with model Scania')
         self._max_range = value
 

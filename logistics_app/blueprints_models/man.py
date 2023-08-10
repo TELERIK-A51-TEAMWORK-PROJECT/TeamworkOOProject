@@ -21,7 +21,7 @@ class Man(CompanyTrucks):
     
     @max_range.setter
     def max_range(self,value):
-        if value < 0 or value > 10000:
+        if value < 10000 or value > 10000:
             raise ValueError(f'Invalid range for truck with model Man')
         self._max_range = value
 
@@ -32,5 +32,5 @@ class Man(CompanyTrucks):
     @vehicle_id.setter
     def vehicle_id(self,value):
         if value < 1011 or value > 1025:
-            raise ValueError(f'Invalid id for truck with model {self._model_name}')
+            raise ValueError(f'Invalid id for truck with model Man')
         self._vehicle_id = value
