@@ -1,68 +1,62 @@
-from blueprints_models.truck_models import Truck_Models
 from logistics_info.location import Locations
-from logistics_info.valid_helpers import calculate_destionation_km, calculate_maxrange_km
+from logistics_info.calculation_helpers import calculate_destionation_km, calculate_maxrange_km
 from datetime import date, datetime, timedelta
 import math
 
 class RouteOfTrucks:
-    def __init__(self, route_id: int, truck_id: int, destinations, start_time: str):
-        self.route_id = route_id
+    def __init__(self, route_id: int, truck_id: int, destinations: str, start_time: str):
+        self._route_id = route_id
         self.truck_id = truck_id
-        self.destinations = destinations.split('->') #[sydney, melbourne, perith]
-        self.destinations_with_dates = self.destinations.copy()
-        self.start_time = start_time.split('/')     # [2023, 7, 8]
+        self.destinations = destinations.split('->')
+        self.start_time = start_time.split('/')
         self.year = int(self.start_time[0])
         self.month = int(self.start_time[1])
         self.day = int(self.start_time[2])
         self.hours = int(10)
         self.first_date = datetime(self.year, self.month, self.day, self.hours)
         self.whole_date = datetime(self.year, self.month, self.day, self.hours)
-        self.destinations_with_dates.insert(1, self.whole_date.strftime("%m/%d/%Y, %H:%M:%S"))
-        self._routes = [] #[route_id, truck_id, dest]
+        self.destinations_with_dates = []
+        self._routes = []
         self.km = 0
-        self.list_of_kms = [] # [877, 3509]
+        self.list_of_kms = []
         self.to_hours = []
 
-        for key_current_location, value in Locations.all_locations.items():
-            if len(self.list_of_kms) == len(self.destinations) - 1:
-                break
-            self.km = calculate_destionation_km(key_current_location, value, self.destinations, self.km) #Изчислява километрите на даденият маршрут
+        self.process_destinations_with_dates()
+        self.calculate_km_and_maxrange()
+        self.calculate_to_hours()
+        self.generate_routes()
+    
+    @property
+    def route_id(self):
+        return self._route_id
+    
+    @route_id.setter
+    def route_id(self, value):
+        if value < 0:
+            raise ValueError('Route id must be positive number!')
+        self._route_id = value
+
+    @property
+    def routes(self):
+         return self._routes
+
+    def process_destinations_with_dates(self):
+        self.destinations_with_dates = self.destinations.copy()
+        self.destinations_with_dates.insert(1, self.whole_date.strftime("%m/%d/%Y, %H:%M:%S"))
+
+    def calculate_km_and_maxrange(self):
+        for current_index_location in range(len(self.destinations) - 1):
+            current_location = self.destinations[current_index_location]
+            self.km = calculate_destionation_km(current_location, Locations.all_locations[current_location], self.destinations, self.km)
             self.list_of_kms = calculate_maxrange_km(self.truck_id, self.list_of_kms, self.km)
 
-
-        #TODO
-        if key_current_location == Locations.PER:
-            index_perth = self.destinations.index(key_current_location)
-            self.destinations.pop(index_perth)
-
-            for second_key, second_value in Locations.all_locations.items():
-                if len(self.list_of_kms) == len(self.destinations) - 1:
-                    break
-                self.km = calculate_destionation_km(second_key, second_value, self.destinations, self.km)
-                self.list_of_kms = calculate_maxrange_km(self.truck_id, self.list_of_kms, self.km)
-
-
-
-            is_breaked = False
-            first_el = self.destinations[0] #[Adelaid]
-            second_el = self.destinations[1] #[Melbourne]
-            for current_key, current_value in Locations.all_locations.items():
-                if is_breaked:
-                    break
-                if current_key == first_el:
-                    for second_key, second_value in current_value.items():
-                        if second_key == second_el:
-                            self.km = second_value
-                            self.list_of_kms = calculate_maxrange_km(self.truck_id, self.list_of_kms, self.km)
-                            is_breaked = True
-
-
-
+    def calculate_to_hours(self):
         for kms in self.list_of_kms:
-            kms /= 90
-            ceiled = math.ceil(kms)
-            self.to_hours.append(ceiled)
-            self.km = 0  #[10, 39]
+            hours = math.ceil(kms / 90)
+            self.to_hours.append(hours)
+            self.km = 0
+
+    def generate_routes(self):
         start_index = 3
         for hour in self.to_hours:
             for _ in range(len(self.destinations) - 1):
@@ -72,8 +66,3 @@ class RouteOfTrucks:
             break
 
         self.routes.append([self.route_id, self.truck_id, self.destinations, self.start_time])
-                            # 1                 1001       ['Sydney', [data na sydney], 'Melbourne', 'Alice Springs']
-
-    @property
-    def routes(self):
-        return self._routes
