@@ -8,77 +8,42 @@ class EmployeeLogin:
         self._app_data = app_data
 
     def execute(self):
-        password = self._params[0]
-        password = try_parse_str(password)
-        access_password = "mbi10811"
+        password = try_parse_str(self._params[0])
+        access_password = "mbi10811" #Access pass
+        
+        if password != access_password:
+            raise ValueError("Incorrect password! Try again!")
 
         data = self._app_data
 
-        if password != access_password:
-            raise ValueError("Incorrect password! Try again!")
-        
-        all_trucks = []
-        final_trucks = []
-        
-        if len(data.trucks) == 0:
-            result = f'Trucks: No information\n'
-        else:
-            for truck in data.trucks:
-                id = truck.vehicle_id
-                fake_id = [id]
-                copy_fake_id = fake_id.copy()
-                name = str(ApplicationData.find_nameoftruck_by_id(id))
-                all_trucks.append([name, str(copy_fake_id[0])])
-        for truckk in all_trucks:
-            joined_trucks = ' / '.join(truckk)
-            final_trucks.append(joined_trucks)
-        all_trucks_joined = ' ||| '.join(final_trucks)
-        result = f"Trucks: {all_trucks_joined}\n"
+        result = 'EMPLOYEE VIEW INFO:\n'
+
+        result += self.format_data(data.trucks, "Trucks", lambda truck: truck.vehicle_id, lambda truck: [str(ApplicationData.find_nameoftruck_by_id(truck.vehicle_id))])
+
+        result += self.format_data(data.routes, "Routes", lambda route: route.route_id, lambda route: ['->'.join(route.destinations)])
+
+        result += self.format_data(data.packages, "Packages", lambda package: package.package_id, lambda package: [package.package_name, str(package.package_kg), package.end_location])
+
         result += f'------------------------------------------------------------------------------\n'
-
-        all_routes = []
-        final_routes = []
-
-        if len(data.routes) == 0:
-            result += f'Routes: No information\n'
-        else:
-            for route in data.routes:
-                route_idd = route.route_id
-                fake_route_id = [route_idd]
-                copy_fake_route = fake_route_id.copy()
-                destinationss = '->'.join(route.destinations)
-                all_routes.append([str(copy_fake_route), destinationss])
-        for routess in all_routes:
-            joined_routes = ' / '.join(routess)
-            final_routes.append(joined_routes)
-        all_routes_joined = ' ||| '.join(final_routes)
-        result += f"Routes: {all_routes_joined}\n"
-        result += f'------------------------------------------------------------------------------\n'
-
-        all_packagess = []
-        final_packages = []
-
-        if len(data.packages) == 0:
-            result += f'Packages: No information\n'
-        else:
-            for package in data.packages:
-                packagee_id = package.package_id
-                fake_package_id = [packagee_id]
-                copy_fake_package = fake_package_id.copy()
-
-                packagee_name = package.package_name
-
-                packagee_kg = package.package_kg
-                fake_package_kg = [packagee_kg]
-                copy_fake_packagekg = fake_package_kg.copy()
-
-                package_end_loc = package.end_location
-                all_packagess.append([str(copy_fake_package), packagee_name, str(copy_fake_packagekg[0]), package_end_loc])
-        for packagess in all_packagess:
-            joined_packages = ' / '.join(packagess)
-            final_packages.append(joined_packages)
-        all_packages_joined = ' ||| '.join(final_packages)
-        result += f"Packages: {all_packages_joined}\n"
-        result += f'------------------------------------------------------------------------------\n'
-
         return result
+    
+    def format_data(self, data_list, data_type, id_func, info_func):
+        formatted_data = []
+
+        if len(data_list) == 0:
+            return f'{data_type}: No information\n'
+        else:
+            for item in data_list:
+                item_id = id_func(item)
+                fake_id = [item_id]
+                copy_fake_id = fake_id.copy()
+                item_info = info_func(item)
+                formatted_data.append([str(copy_fake_id[0])] + item_info)
+        
+        final_items = []
+        for item_data in formatted_data:
+            joined_item = ' - '.join(item_data)
+            final_items.append(joined_item)
+        
+        all_items_joined = ' / '.join(final_items)
+        return f"{data_type}: {all_items_joined}\n"

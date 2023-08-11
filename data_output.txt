@@ -1,42 +1,9 @@
+EMPLOYEE VIEW INFO:
+Trucks: No information
+Routes: No information
+Packages: No information
 ------------------------------------------------------------------------------
-Truck Scania with id: [1003] was created!
-------------------------------------------------------------------------------
-------------------------------------------------------------------------------
-Truck Scania with id: [1002] was created!
-------------------------------------------------------------------------------
-------------------------------------------------------------------------------
-Truck Scania with id: [1001] was created!
-------------------------------------------------------------------------------
-Route with id: [1] has been created:
-Route: [Sydney->Melbourne->AliceSprings]
-Assigned to truck: [1003] Scania
-------------------------------------------------------------------------------
-Route with id: [2] has been created:
-Route: [Sydney->Melbourne->AliceSprings]
-Assigned to truck: [1002] Scania
-------------------------------------------------------------------------------
-Route with id: [3] has been created:
-Route: [Sydney->Melbourne->AliceSprings]
-Assigned to truck: [1001] Scania
-------------------------------------------------------------------------------
-Customer was created in (Melbourne):
-Info: [Borislav Bonev] | Number: [0899999999] | Email: (bobi@abv.bg)
-------------------------------------------------------------------------------
-Package has been created with id: [1] Status: [OPEN]
-Info of package: Name: Televizor | Kilograms: 23 | Customer Email: (bobi@abv.bg) Delivery location: (Melbourne)
-Wating for truck to pick up..
-------------------------------------------------------------------------------
-Package has been created with id: [2] Status: [OPEN]
-Info of package: Name: Dildo | Kilograms: 2 | Customer Email: (bobi@abv.bg) Delivery location: (Melbourne)
-Wating for truck to pick up..
-------------------------------------------------------------------------------
-Package has been created with id: [3] Status: [OPEN]
-Info of package: Name: DjobnaPutka | Kilograms: 3 | Customer Email: (bobi@abv.bg) Delivery location: (Melbourne)
-Wating for truck to pick up..
-------------------------------------------------------------------------------
-Trucks: Scania / 1003 ||| Scania / 1002 ||| Scania / 1001
-------------------------------------------------------------------------------
-Routes: [1] / Sydney->Melbourne->AliceSprings ||| [2] / Sydney->Melbourne->AliceSprings ||| [3] / Sydney->Melbourne->AliceSprings
-------------------------------------------------------------------------------
-Packages: [1] / Televizor / 23 / Melbourne ||| [2] / Dildo / 2 / Melbourne ||| [3] / DjobnaPutka / 3 / Melbourne
+
+MANAGER VIEW INFO:
+Customers: No information
 ------------------------------------------------------------------------------

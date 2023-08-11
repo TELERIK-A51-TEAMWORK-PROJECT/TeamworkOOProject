@@ -6,6 +6,7 @@ from commands.create_customer import CreateCustomerCommand
 from commands.create_package import CreatePackageCommand
 from commands.assign_package_to_truck import AssignPackageToTruck
 from commands.employee_login import EmployeeLogin
+from commands.manager_login import ManagerLogin
 
 class CommandFactory:
     def __init__(self, data):
@@ -30,5 +31,7 @@ class CommandFactory:
             return AssignPackageToTruck(params,self._app_data)
         if cmd.lower() == "employeelogin":
             return EmployeeLogin(params, self._app_data)
+        if cmd.lower() == "managerlogin":
+            return ManagerLogin(params, self._app_data)
         
         raise ValueError(f'This command: [{cmd}] doesn\'t exist!')
