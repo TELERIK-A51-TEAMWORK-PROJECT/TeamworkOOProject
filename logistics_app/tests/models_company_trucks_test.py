@@ -1,25 +1,42 @@
 import unittest
-
-from blueprints_models.truck_models import Truck_Models
 from blueprints_models.company_trucks import CompanyTrucks
+class TestCompanyTrucks(unittest.TestCase):
 
-VALID_NAME = Truck_Models.ACTROS
-VALID_CAPACITY = 10000
-VALID_MAX_RANGE = 6000
+    def setUp(self):
+        self.valid_truck = CompanyTrucks(1010, 20000, 8000)
 
+    def test_valid_vehicle_id(self):
+        valid_ids = [1001, 1020, 1040]
+        for vehicle_id in valid_ids:
+            truck = CompanyTrucks(vehicle_id, 20000, 8000)
+            self.assertEqual(truck.vehicle_id, vehicle_id)
 
-class Company_trucks_Should(unittest.TestCase):
+    def test_invalid_vehicle_id(self):
+        invalid_ids = [1000, 1041, 1050]
+        for vehicle_id in invalid_ids:
+            with self.assertRaises(ValueError):
+                CompanyTrucks(vehicle_id, 20000, 8000)
 
-    def test_constructor_raisesError_when_capacityOutOfBounds(self):
-        with self.assertRaises(ValueError):
-            _ = CompanyTrucks(VALID_NAME, -50, VALID_MAX_RANGE)
+    def test_valid_capacity(self):
+        valid_capacities = [1000, 15000, 42000]
+        for capacity in valid_capacities:
+            truck = CompanyTrucks(1010, capacity, 8000)
+            self.assertEqual(truck.capacity_kg, capacity)
 
-    def test_constructor_raiseError_when_priceIsNegative(self):
-        with self.assertRaises(ValueError):
-            _ = CompanyTrucks(VALID_NAME, VALID_CAPACITY, -100)
+    def test_invalid_capacity(self):
+        invalid_capacities = [-100, 45000, 50000]
+        for capacity in invalid_capacities:
+            with self.assertRaises(ValueError):
+                CompanyTrucks(1010, capacity, 8000)
 
-    def test_constructor_setsProperties_whenArgumentsAreValid(self):
-        company_trucks = CompanyTrucks(VALID_NAME, VALID_CAPACITY, VALID_MAX_RANGE)
-        self.assertEqual(VALID_NAME, company_trucks.model_name)
-        self.assertEqual(VALID_CAPACITY, company_trucks.capacity_kg)
-        self.assertEqual(VALID_MAX_RANGE, company_trucks.max_range)
+    def test_valid_max_range(self):
+        valid_ranges = [1000, 6500, 13000]
+        for max_range in valid_ranges:
+            truck = CompanyTrucks(1010, 20000, max_range)
+            self.assertEqual(truck.max_range, max_range)
+
+    def test_invalid_max_range(self):
+        invalid_ranges = [-100, 14000, 20000]
+        for max_range in invalid_ranges:
+            with self.assertRaises(ValueError):
+                CompanyTrucks(1010, 20000, max_range)

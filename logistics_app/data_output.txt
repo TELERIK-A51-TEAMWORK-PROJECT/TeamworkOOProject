@@ -1,0 +1,14 @@
+------------------------------------------------------------------------------
+Truck Scania with id: [1003] was created!
+------------------------------------------------------------------------------
+Route with id: [1] has been created:
+Route: [Melbourne->Adelaide->AliceSprings]
+Assigned to truck: [1003] Scania
+------------------------------------------------------------------------------
+Customer was created in (Melbourne):
+Info: [Borislav Bonev] | Number: [0899999999] | Email: (bobi@abv.bg)
+------------------------------------------------------------------------------
+Package has been created with id: [1] Status: [OPEN]
+Info of package: Name: Televizor | Kilograms: 23 | Customer Email: (bobi@abv.bg) Delivery location: (LosSantos)
+Wating for truck to pick up..
+------------------------------------------------------------------------------

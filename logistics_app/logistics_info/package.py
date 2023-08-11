@@ -1,4 +1,5 @@
 from logistics_info.package_status import PackageStatus
+from logistics_info.location import Locations
 
 
 class Package:
@@ -7,7 +8,7 @@ class Package:
         self.package_name = package_name
         self.package_kg = package_kg
         self.email = email
-        self.end_location = end_location
+        self._end_location = end_location
         self.package_status = PackageStatus.OPEN
 
     @property
@@ -54,3 +55,8 @@ class Package:
         if len(value) < 3 or len(value) > 25:
             raise ValueError('The email length you are trying to input is not valid')
         self._email = value
+
+    @property
+    def end_location(self):
+        return Locations.from_string(self._end_location)
+    
