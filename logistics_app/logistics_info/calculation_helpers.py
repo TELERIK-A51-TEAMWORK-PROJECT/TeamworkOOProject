@@ -52,5 +52,3 @@ def calculate_maxrange_km(truck_id, list_of_kms, km):
             raise ValueError(f'Exceeding max range of Actros [{truck_id}]!')
         
     return list_of_kms
-
-     
