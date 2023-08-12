@@ -2,8 +2,6 @@ from core.application_data import ApplicationData
 from logistics_info.location import Locations
 from commands.valid_helpers import try_parse_int, validate_params_count, try_parse_str
 
-
-
 class CreateRouteCommand:
 
     def __init__(self, params, app_data: ApplicationData):

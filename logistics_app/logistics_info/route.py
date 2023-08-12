@@ -1,6 +1,6 @@
 from logistics_info.location import Locations
 from logistics_info.calculation_helpers import calculate_destionation_km, calculate_maxrange_km
-from datetime import date, datetime, timedelta
+from datetime import datetime, timedelta
 import math
 
 class RouteOfTrucks:
@@ -26,6 +26,16 @@ class RouteOfTrucks:
         self.calculate_to_hours()
         self.generate_routes()
     
+    @property
+    def year(self):
+        return self._year
+    
+    @year.setter
+    def year(self,value):
+        if value < 2023 or value> 2025:
+            raise ValueError('Invalid year (must be between 2023-2025)')
+        self._year = value
+
     @property
     def route_id(self):
         return self._route_id

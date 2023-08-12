@@ -1,4 +1,3 @@
-from blueprints_models.company_trucks import CompanyTrucks
 from blueprints_models.actros import Actros
 from blueprints_models.scania import Scania
 from blueprints_models.man import Man
@@ -47,7 +46,7 @@ class ApplicationData:
     def packages(self):
         return tuple(self._packages)
     
-    def find_truck_by_id(self, id) -> CompanyTrucks:
+    def find_truck_by_id(self, id):
         for truck in self._trucks:
             if truck.vehicle_id == id:
                 return truck
@@ -55,20 +54,22 @@ class ApplicationData:
             raise ValueError(f'Truck: [{id}] {ApplicationData.find_nameoftruck_by_id(id)} does not exist!')
         
     def create_truck(self, vehicle_id, capacity, max_range):
-        #Scania
+        
         id = vehicle_id
         current_truck = ''
         if 1001 <= id <= 1010:
             current_truck = Scania(vehicle_id,capacity, max_range)
             ApplicationData.SCANIA_NUMBER_OF_TRUCKS -= 1
-        #Man
+        
         elif 1011 <= id <= 1025:
             current_truck = Man(vehicle_id,capacity,max_range)
             ApplicationData.MAN_NUMBER_OF_TRUCKS -= 1
-        #Actros
+        
         elif 1026 <= id <= 1040:
             current_truck = Actros(vehicle_id,capacity,max_range)
             ApplicationData.ACTROS_NUMBER_OF_TRUCKS -= 1
+        else:
+            ValueError('The id you are tryping to input is invalid')
         self._trucks.append(current_truck)
         return current_truck
     
@@ -85,13 +86,13 @@ class ApplicationData:
         package = Package(package_id, package_name, package_kg,email, end_location)
         self._packages.append(package)
         return package
-    #Trucks
+    
     def vehicle_exists(self,vehicle_id):
         return vehicle_id in [this.vehicle_id for this in self._trucks]
-    #Routes
+    
     def route_exits(self,route_id):
         return route_id in [this.route_id for this in self._routes]
-    #Packages
+    
     def package_exits(self,package_id):
         return package_id in [this.package_id for this in self._packages]
     

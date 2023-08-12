@@ -4,7 +4,6 @@ class PackageStatus:
 
     STATUS = [OPEN,PROCESSING]
 
-
     @classmethod
     def advance_status(cls, current):
         current_index = cls.STATUS.index(current)

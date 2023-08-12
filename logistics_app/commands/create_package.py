@@ -1,7 +1,6 @@
 from core.application_data import ApplicationData
 from commands.valid_helpers import try_parse_int, validate_params_count, try_parse_str
 
-#Todo
 class CreatePackageCommand:
     def __init__(self, params, app_data: ApplicationData):
         validate_params_count(params, 5)
@@ -14,7 +13,6 @@ class CreatePackageCommand:
         package_name = try_parse_str(package_name)
         package_kg = try_parse_int(package_kg)
         end_location = try_parse_str(end_location)
-
 
         customer = self._app_data.find_customer_byemail(email)
 

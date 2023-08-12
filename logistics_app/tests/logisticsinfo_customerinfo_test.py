@@ -4,6 +4,11 @@ from logistics_info.customer_info import Customer
 
 class TestCustomerClass(unittest.TestCase):
 
+    # правим базова проверка, с която да сравняваме
+    def assertInvalidCustomer(self, location, first_name, last_name, telephone, email):
+        with self.assertRaises(ValueError):
+            Customer(location, first_name, last_name, telephone, email)
+
     def test_validcustomer_creation(self):
         location = Locations.MEL
         first_name = "Ivailo"# няма право на цифри в името
@@ -18,3 +23,20 @@ class TestCustomerClass(unittest.TestCase):
         self.assertEqual(customer.last_name, last_name)
         self.assertEqual(customer.telephone, telephone)
         self.assertEqual(customer.email, email)
+
+
+    def test_invalid_first_name(self):
+        self.assertInvalidCustomer("Location", "123", "Doe", "1234567890", "john.doe@example.com")
+    
+    def test_invalid_last_name(self):
+        self.assertInvalidCustomer("Location", "John", "123", "1234567890", "john.doe@example.com")
+    
+    def test_invalid_telephone_characters(self):
+        self.assertInvalidCustomer("Location", "John", "Doe", "12a4567890", "john.doe@example.com")
+    
+    def test_invalid_telephone_length(self):
+        self.assertInvalidCustomer("Location", "John", "Doe", "1234567", "john.doe@example.com")
+    
+    def test_invalid_email_characters(self):
+        self.assertInvalidCustomer("Location", "John", "Doe", "1234567890", "john.doe@example!com")
+    

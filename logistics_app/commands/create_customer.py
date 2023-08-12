@@ -1,5 +1,5 @@
 from core.application_data import ApplicationData
-from commands.valid_helpers import try_parse_int, validate_params_count,try_parse_str
+from commands.valid_helpers import validate_params_count,try_parse_str
 from logistics_info.location import Locations
 
 class CreateCustomerCommand:

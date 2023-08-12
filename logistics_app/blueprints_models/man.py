@@ -1,9 +1,10 @@
-from blueprints_models.company_trucks import CompanyTrucks
 
 
-class Man(CompanyTrucks):
+class Man():
     def __init__(self, vehicle_id: int,capacity_kg: int, max_range: int):
-        super().__init__(vehicle_id,capacity_kg, max_range)
+        self.vehicle_id = vehicle_id
+        self.capacity_kg = capacity_kg
+        self.max_range = max_range
     
     @property
     def capacity_kg(self):
@@ -24,13 +25,3 @@ class Man(CompanyTrucks):
         if value < 10000 or value > 10000:
             raise ValueError(f'Invalid range for truck with model Man')
         self._max_range = value
-
-    @property
-    def vehicle_id(self):
-        return self._vehicle_id
-    
-    @vehicle_id.setter
-    def vehicle_id(self,value):
-        if value < 1011 or value > 1025:
-            raise ValueError(f'Invalid id for truck with model Man')
-        self._vehicle_id = value

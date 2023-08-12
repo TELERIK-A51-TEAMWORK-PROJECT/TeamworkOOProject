@@ -21,10 +21,9 @@ def calculate_destionation_km(location_key, location_value, destionations, km):
                     return km
             current_location = next_location
 
-#Max_range calcs
 
 def calculate_maxrange_km(truck_id, list_of_kms, km):
-     #Scania
+     
     if truck_id >= 1001 and truck_id <= 1010:
         if km == None:
             pass
@@ -33,7 +32,7 @@ def calculate_maxrange_km(truck_id, list_of_kms, km):
         if sum(list_of_kms) > 8000:
             list_of_kms = []
             raise ValueError(f'Exceeding max range of Scania [{truck_id}]!')
-    #Man
+    
     if truck_id >= 1011 and truck_id <= 1025:
         if km == None:
             pass

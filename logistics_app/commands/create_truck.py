@@ -1,9 +1,7 @@
 from core.application_data import ApplicationData
-from blueprints_models.truck_models import Truck_Models
 from commands.valid_helpers import try_parse_int, validate_params_count
 
-
-class CreateActrosCommand:
+class CreateTruckCommand:
 
     def __init__(self, params, app_data: ApplicationData):
         validate_params_count(params, 3)
@@ -17,10 +15,10 @@ class CreateActrosCommand:
         vehicle_id = try_parse_int(vehicle_id)
 
         if self._app_data.vehicle_exists(vehicle_id):
-            raise ValueError(f'Truck Actros with id: [{vehicle_id}] already exists!')
+            raise ValueError(f'Truck {ApplicationData.find_nameoftruck_by_id(vehicle_id)} with id: [{vehicle_id}] already exists!')
         self._app_data.create_truck(vehicle_id,capacity,max_range)
 
         result = f'------------------------------------------------------------------------------\n'
-        result += f'Truck Actros with id: [{vehicle_id}] was created!\n'
+        result += f'Truck {ApplicationData.find_nameoftruck_by_id(vehicle_id)} with id: [{vehicle_id}] was created!\n'
         result += f'------------------------------------------------------------------------------'
         return result

@@ -5,18 +5,6 @@ class TestCompanyTrucks(unittest.TestCase):
     def setUp(self):
         self.valid_truck = Man(1013, 36000, 10000)
 
-    def test_valid_vehicle_id(self):
-        valid_ids = [1012, 1016, 1023]
-        for vehicle_id in valid_ids:
-            truck = Man(vehicle_id, 37000, 10000)
-            self.assertEqual(truck.vehicle_id, vehicle_id)
-
-    def test_invalid_vehicle_id(self):
-        invalid_ids = [1005, 1027, 1039]
-        for vehicle_id in invalid_ids:
-            with self.assertRaises(ValueError):
-                Man(vehicle_id, 37000, 10000)
-
     def test_valid_capacity(self):
         valid_capacities = [1000, 15000, 36000]
         for capacity in valid_capacities:

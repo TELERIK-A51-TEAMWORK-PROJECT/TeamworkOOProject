@@ -1,14 +1,51 @@
 ------------------------------------------------------------------------------
 Truck Scania with id: [1003] was created!
 ------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Truck Scania with id: [1002] was created!
+------------------------------------------------------------------------------
 Route with id: [1] has been created:
-Route: [Melbourne->Adelaide->AliceSprings]
+Route: [Sydney->Melbourne->AliceSprings]
 Assigned to truck: [1003] Scania
+------------------------------------------------------------------------------
+Route with id: [2] has been created:
+Route: [Sydney->Melbourne->AliceSprings]
+Assigned to truck: [1002] Scania
 ------------------------------------------------------------------------------
 Customer was created in (Melbourne):
 Info: [Borislav Bonev] | Number: [0899999999] | Email: (bobi@abv.bg)
 ------------------------------------------------------------------------------
+Customer was created in (Sydney):
+Info: [Ivailo Bonev] | Number: [0899999991] | Email: (ivo@abv.bg)
+------------------------------------------------------------------------------
 Package has been created with id: [1] Status: [OPEN]
-Info of package: Name: Televizor | Kilograms: 23 | Customer Email: (bobi@abv.bg) Delivery location: (LosSantos)
+Info of package: Name: Televizor | Kilograms: 23 | Customer Email: (bobi@abv.bg) Delivery location: (AliceSprings)
 Wating for truck to pick up..
+------------------------------------------------------------------------------
+Package has been created with id: [2] Status: [OPEN]
+Info of package: Name: Televizor | Kilograms: 40 | Customer Email: (ivo@abv.bg) Delivery location: (Melbourne)
+Wating for truck to pick up..
+------------------------------------------------------------------------------
+Package [1] has been assigned to truck:
+Truck Info: [1003] Scania
+Current route: Sydney -> Melbourne -> AliceSprings
+Departure time - Expected delivery time in different locations: Sydney->(08/07/2023, 10:00:00) | Melbourne->(08/07/2023, 20:00:00) | AliceSprings->(08/08/2023, 06:00:00)
+Kilograms left on the truck: (41977)
+Status: PROCESSING
+------------------------------------------------------------------------------
+Package [2] has been assigned to truck:
+Truck Info: [1002] Scania
+Current route: Sydney -> Melbourne -> AliceSprings
+Departure time - Expected delivery time in different locations: Sydney->(08/07/2023, 10:00:00) | Melbourne->(08/07/2023, 10:00:00) | AliceSprings->(08/07/2023, 10:00:00)
+Kilograms left on the truck: (4960)
+Status: PROCESSING
+------------------------------------------------------------------------------
+MANAGER VIEW INFO:
+Customers: Melbourne - Borislav - Bonev - 0899999999 - bobi@abv.bg / Sydney - Ivailo - Bonev - 0899999991 - ivo@abv.bg
+------------------------------------------------------------------------------
+
+EMPLOYEE VIEW INFO:
+Trucks: 1003 - Scania / 1002 - Scania
+Routes: 1 - Sydney->Melbourne->AliceSprings / 2 - Sydney->Melbourne->AliceSprings
+Packages: 1 - Televizor - 23 - AliceSprings / 2 - Televizor - 40 - Melbourne
 ------------------------------------------------------------------------------
