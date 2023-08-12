@@ -69,7 +69,7 @@ class ApplicationData:
             current_truck = Actros(vehicle_id,capacity,max_range)
             ApplicationData.ACTROS_NUMBER_OF_TRUCKS -= 1
         else:
-            ValueError('The id you are tryping to input is invalid')
+            raise ValueError('The id you are tryping to input is invalid')
         self._trucks.append(current_truck)
         return current_truck
     

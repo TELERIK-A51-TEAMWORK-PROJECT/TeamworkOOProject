@@ -19,6 +19,5 @@ class CreateTruckCommand:
         self._app_data.create_truck(vehicle_id,capacity,max_range)
 
         result = f'------------------------------------------------------------------------------\n'
-        result += f'Truck {ApplicationData.find_nameoftruck_by_id(vehicle_id)} with id: [{vehicle_id}] was created!\n'
-        result += f'------------------------------------------------------------------------------'
+        result += f'Truck {ApplicationData.find_nameoftruck_by_id(vehicle_id)} with id: [{vehicle_id}] was created!'
         return result
