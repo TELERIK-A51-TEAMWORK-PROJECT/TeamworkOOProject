@@ -1,9 +1,11 @@
-EMPLOYEE VIEW INFO:
-Trucks: No information
-Routes: No information
-Packages: No information
 ------------------------------------------------------------------------------
-
-MANAGER VIEW INFO:
-Customers: No information
+Truck Scania with id: [1003] was created!
+------------------------------------------------------------------------------
+Route with id: [1] has been created:
+Route: [Sydney->Melbourne->AliceSprings]
+Assigned to truck: [1003] Scania
+------------------------------------------------------------------------------
+Route with id: [2] has been created:
+Route: [Sydney->Melbourne->AliceSprings]
+Assigned to truck: [1003] Scania
 ------------------------------------------------------------------------------
