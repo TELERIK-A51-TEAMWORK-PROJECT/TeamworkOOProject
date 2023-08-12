@@ -5,6 +5,8 @@
 Hello and welcome to every new employee in our company. Here you will find everything about our application. 
 We specially created this `employee handbook` to help you understand how to work with our **commands** in the most easiest way. 
 
+<br></br>
+
 * **BE AWARE - FOLLOW THE COMMANDS ORDER**
 
 * **BY DOING EVERYTHING IN ORDER/CORRECTLY YOU WILL BE ABLE TO SERVICE A SHIPMENT**
@@ -144,11 +146,8 @@ createtruck 1004 42000 9000
 #### EXPECTED OUTPUT:
 
 ```none
-Truck Scania with id: [1003] already exists!
-Invalid range for truck with model Scania
-Truck Man with id: [1011] already exists!
-Truck Actros with id: [1026] already exists!
-The id you are trying to input is invalid(too low or too high)
+VALID OUTPUT:
+
 ------------------------------------------
 Truck Scania with id: [1003] was created!
 ------------------------------------------
@@ -156,6 +155,14 @@ Truck Man with id: [1011] was created!
 ------------------------------------------
 Truck Actros with id: [1026] was created!
 ------------------------------------------
+
+INVALID OUTPUT:
+
+Truck Scania with id: [1003] already exists!
+Invalid range for truck with model Scania
+Truck Man with id: [1011] already exists!
+Truck Actros with id: [1026] already exists!
+The id you are trying to input is invalid(too low or too high)
 ```
 
 ## 2. CREATE ROUTE 🛣
@@ -197,10 +204,8 @@ createroute 4 1003 Sydney->Melbourne->AliceSprings 202/8/7
 #### EXPECTED OUTPUT:
 
 ```none
-Truck: [1004] Scania does not exist!
-day is out of range for month
-Route with id: [1] is already taken by [1003]
-Invalid year (must be between 2023-2025)
+VALID OUTPUT:
+
 ------------------------------------------------------------------------------
 Truck Scania with id: [1003] was created!
 ------------------------------------------------------------------------------
@@ -208,6 +213,13 @@ Route with id: [1] has been created:
 Route: [Sydney->Melbourne->AliceSprings]
 Assigned to truck: [1003] Scania
 ------------------------------------------------------------------------------
+
+INVALID OUTPUT:
+
+Truck: [1004] Scania does not exist!
+day is out of range for month
+Route with id: [1] is already taken by [1003]
+Invalid year (must be between 2023-2025)
 ```
 
 ## 3. CREATE CUSTOMER 👷‍♂
@@ -249,7 +261,7 @@ Customer was created in (Melbourne):
 Info: [Borislav Bonev] | Number: [0899999999] | Email: (bobi@abv.bg)
 ------------------------------------------------------------------------------
 
-INVALID OUTPUT
+INVALID OUTPUT:
 
 There is no LosSantos in the Australian region
 The telephone you are trying to input is not valid (for australia)
@@ -280,10 +292,12 @@ The telephone you are trying to input is not valid (for australia)
 
 ```none
 VALID INPUT:
+
 createcustomer Melbourne Borislav Bonev 0899999999 bobi@abv.bg
 createpackage 1 Fridge 50 bobi@abv.bg AliceSprings
 
 INVALID INPUT:
+
 createpackage 1 Fridge 50 bobi@abv.bg AliceSprings
 createcustomer Melbourne Borislav Bonev 0899999999 bobi@abv.bg
 createpackage 1 Fridge 50 bobi@abv.bg AliceSprings
