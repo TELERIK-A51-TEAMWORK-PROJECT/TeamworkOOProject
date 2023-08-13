@@ -1,18 +1,13 @@
-def format_data(data_list, data_type, id_func, info_func):
+def format_data(data_list, data_type, info_func):
     formatted_data = []
 
     if len(data_list) == 0:
         return f'{data_type}: No information\n'
     else:
-        for item in data_list:
-            item_id = id_func(item)
+        for idx, item in enumerate(data_list, start=1):
             item_info = info_func(item)
-            formatted_data.append([item_id] + item_info)
+            formatted_data.append(f"{idx}. {item_info}")
         
-        final_items = []
-        for item_data in formatted_data:
-            joined_item = ' - '.join(item_data)
-            final_items.append(joined_item)
-        
-        all_items_joined = ' / '.join(final_items)
-        return f"{data_type}: {all_items_joined}\n"
+        total_count_customers = len(data_list)
+        all_items_joined = '\n'.join(formatted_data)
+        return f"{data_type} ({total_count_customers}):\n{all_items_joined}\n"

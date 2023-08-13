@@ -19,7 +19,6 @@ class ManagerLogin:
             raise ValueError("Incorrect password! Try again!")
         
         result = 'MANAGER VIEW INFO:\n'
-        result += format_data(data.customers, "Customers", lambda customer: customer.location,lambda customer: [customer.first_name, customer.last_name, customer.telephone, customer.email])
-
+        result += format_data(data.customers, "Customers", lambda customer: f"{customer.location} - {customer.first_name} - {customer.last_name} - {customer.telephone} - {customer.email}")
         result += f'------------------------------------------------------------------------------\n'
         return result

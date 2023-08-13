@@ -564,12 +564,24 @@ Kilograms left on the truck: (5990)
 Status: PROCESSING
 ------------------------------------------------------------------------------
 MANAGER VIEW INFO:
-Customers: Sydney - Borislav - Bonev - 0899999999 - bobi@abv.bg / Melbourne - Ivaylo - Petrov - 0899568999 - ivaylo@abv.bg / Brisbane - Mario - Stanoychev - 0849567999 - mario@abv.bg
+Customers (3):
+1. Sydney - Borislav - Bonev - 0899999999 - bobi@abv.bg
+2. Melbourne - Ivaylo - Petrov - 0899568999 - ivaylo@abv.bg
+3. Brisbane - Mario - Stanoychev - 0849567999 - mario@abv.bg
 ------------------------------------------------------------------------------
 
 EMPLOYEE VIEW INFO:
-Trucks: 1003 - Scania / 1011 - Scania / 1027 - Scania
-Routes: 1 - Melbourne->Adelaide->AliceSprings / 2 - Sydney->Adelaide->AliceSprings->Perth / 3 - Brisbane->AliceSprings->Adelaide 
-Packages: 1 - Televizor - 23 - Adelaide / 2 - Fridge - 50 - AliceSprings / 3 - Chair - 10 - Perth
+Trucks (3):
+1. 1003 - Scania
+2. 1011 - Scania
+3. 1027 - Scania
+Routes (3):
+1. 1 - Melbourne->Adelaide->AliceSprings
+2. 2 - Sydney->Adelaide->AliceSprings->Perth
+3. 3 - Brisbane->AliceSprings->Adelaide
+Packages (3):
+1. 1 - Televizor - 23 - Adelaide
+2. 2 - Fridge - 50 - AliceSprings
+3. 3 - Chair - 10 - Perth
 ------------------------------------------------------------------------------
 ```

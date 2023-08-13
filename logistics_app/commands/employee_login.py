@@ -31,19 +31,14 @@ class EmployeeLogin:
         formatted_data = []
 
         if len(data_list) == 0:
-            return f'{data_type}: No information\n'
+            return f'{data_type} (0):\nNo information\n'
         else:
-            for item in data_list:
+            for index, item in enumerate(data_list, start=1):
                 item_id = id_func(item)
-                fake_id = [item_id]
-                copy_fake_id = fake_id.copy()
                 item_info = info_func(item)
-                formatted_data.append([str(copy_fake_id[0])] + item_info)
-        
-        final_items = []
-        for item_data in formatted_data:
-            joined_item = ' - '.join(item_data)
-            final_items.append(joined_item)
-        
-        all_items_joined = ' / '.join(final_items)
-        return f"{data_type}: {all_items_joined}\n"
+                formatted_item_info = ' - '.join(item_info)
+                formatted_data.append(f"{index}. {item_id} - {formatted_item_info}")
+
+        total_counts = len(data_list)
+        all_items_joined = '\n'.join(formatted_data)
+        return f"{data_type} ({total_counts}):\n{all_items_joined}\n"
