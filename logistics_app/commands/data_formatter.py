@@ -10,4 +10,4 @@ def format_data(data_list, data_type, info_func):
         
         total_count_customers = len(data_list)
         all_items_joined = '\n'.join(formatted_data)
-        return f"{data_type} ({total_count_customers}):\n{all_items_joined}\n"
+        return f"Total {data_type} ({total_count_customers}):\n{all_items_joined}\n"

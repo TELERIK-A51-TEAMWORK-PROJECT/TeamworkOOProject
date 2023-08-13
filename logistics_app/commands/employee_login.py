@@ -37,8 +37,8 @@ class EmployeeLogin:
                 item_id = id_func(item)
                 item_info = info_func(item)
                 formatted_item_info = ' - '.join(item_info)
-                formatted_data.append(f"{index}. {item_id} - {formatted_item_info}")
+                formatted_data.append(f"{index}. ID: {item_id} - {formatted_item_info}")
 
         total_counts = len(data_list)
         all_items_joined = '\n'.join(formatted_data)
-        return f"{data_type} ({total_counts}):\n{all_items_joined}\n"
+        return f"Total {data_type} ({total_counts}):\n{all_items_joined}\n"

@@ -2,7 +2,8 @@
 
 # MBI EXPRESS SYSTEM GUIDE
 
-Hello and welcome to every new employee in our company. Here you will find everything about our application. 
+
+Hello and welcome to every new employee in our company. Here you will find everything about our system. 
 We specially created this `employee handbook` to help you understand how to work with our **commands** in the most easiest way. 
 
 <br></br>
@@ -12,8 +13,6 @@ We specially created this `employee handbook` to help you understand how to work
 * **BY DOING EVERYTHING IN ORDER/CORRECTLY YOU WILL BE ABLE TO SERVICE A SHIPMENT**
 
 <br></br>
-<br></br>
-
 
 ## EVERY COMMAND IN OUR SYSTEM:
 
@@ -23,7 +22,7 @@ We specially created this `employee handbook` to help you understand how to work
 > This command set's a truck by giving it a capacity and also maximum range.
 
 
-**[CreateTruck Information](#1-create-specific-truck-🚚)**
+**[CreateTruck Information](#1-create-specific-truck)**
 
 *(You can click here to see how the command works)*
 <!-- ROUTE -->
@@ -32,7 +31,7 @@ We specially created this `employee handbook` to help you understand how to work
 
 > This command maps a new route and appoints the trucks on it from the first command.
 
-**[CreateRoute Information](#2-create-route-🛣)**
+**[CreateRoute Information](#2-create-route)**
 
 *(You can click here to see how the command works)*
 
@@ -42,7 +41,7 @@ We specially created this `employee handbook` to help you understand how to work
 
 >This command is used when a new customer comes in one of our offices (our employees gather his information and they enter it into the system)
 
-**[CreateCustomer Information](#3-create-customer-👷‍♂)**
+**[CreateCustomer Information](#3-create-customer)**
 
 *(You can click here to see how the command works)*
 
@@ -52,7 +51,7 @@ We specially created this `employee handbook` to help you understand how to work
 
 >This command is used right after the customer command, it registers a new package in our system from the customers email.
 
-**[CreatePackage Information](#4-create-package-📦)**
+**[CreatePackage Information](#4-create-package)**
 
 *(You can click here to see how the command works)*
 
@@ -63,7 +62,7 @@ We specially created this `employee handbook` to help you understand how to work
 
 >This command is used to assign a package to an existing truck.
 
-**[AssignPackage Information](#5-assign-package-🚚📦)**
+**[AssignPackage Information](#5-assign-package)**
 
 *(You can click here to see how the command works)*
 
@@ -73,7 +72,7 @@ We specially created this `employee handbook` to help you understand how to work
 
 >This command gives a restricted information to our employees about the current: packages, routes, trucks.
 
-**[EmployeeLogin Information](#6-employee-login-🔑)**
+**[EmployeeLogin Information](#6-employee-login)**
 
 *(You can click here to see how the command works)*
 
@@ -83,7 +82,7 @@ We specially created this `employee handbook` to help you understand how to work
 
 >This command gives a restricted information to our managers about the current customers information (Used only in case of errors and other problems).
 
-**[ManagerLogin Information](#7-manager-login-🗝)**
+**[ManagerLogin Information](#7-manager-login)**
 
 *(You can click here to see how the command works)*
  
@@ -98,7 +97,7 @@ We specially created this `employee handbook` to help you understand how to work
 <br></br>
 <br></br>
 
-## 1. CREATE SPECIFIC TRUCK 🚚 
+## 1. CREATE SPECIFIC TRUCK  
 >**Before typing out every parameter you have to create the command - createtruck**
 
 >1. (TRUCK ID) - You will have to set a new truck from our avaible ID's.
@@ -165,7 +164,7 @@ Truck Actros with id: [1026] already exists!
 The id you are trying to input is invalid(too low or too high)
 ```
 
-## 2. CREATE ROUTE 🛣
+## 2. CREATE ROUTE 
 ### [Click to return to the top](#every-command-in-our-system)
 >**Before typing out every parameter you have to create the command - createroute**
 
@@ -176,6 +175,8 @@ The id you are trying to input is invalid(too low or too high)
 >3. (MAPPING ROUTE) - You will have to set a route using (->) after every city.
 <br></br>
 >4. (DATE) - You will have to set the current date
+
+>* BE CAREFUL- We are only working with international shipping so we are not shipping in the same city. The system will throw you again ERROR.
 #### COMMAND:
 
 `createroute (ROUTE ID) (TRUCK ID) (MAPPING ROUTE) (DATE)`
@@ -222,7 +223,7 @@ Route with id: [1] is already taken by [1003]
 Invalid year (must be between 2023-2025)
 ```
 
-## 3. CREATE CUSTOMER 👷‍♂
+## 3. CREATE CUSTOMER 
 ### [Click to return to the top](#every-command-in-our-system)
 >**Before typing out every parameter you have to create the command - createcustomer**
 
@@ -244,9 +245,11 @@ Invalid year (must be between 2023-2025)
 
 ```none
 VALID INPUT:
+
 createcustomer Melbourne Borislav Bonev 0899999999 bobi@abv.bg
 
 INVALID INPUT:
+
 createcustomer LosSantos Borislav Bonev 0899999999 bobi@abv.bg
 createcustomer Melbourne Borislav Bonev 089999999 bobi@abv.bg
 ```
@@ -267,7 +270,7 @@ There is no LosSantos in the Australian region
 The telephone you are trying to input is not valid (for australia)
 ```
 
-## 4. CREATE PACKAGE 📦
+## 4. CREATE PACKAGE 
 ### [Click to return to the top](#every-command-in-our-system)
 >**Before typing out every parameter you have to create the command - createpackage**
 
@@ -279,10 +282,9 @@ The telephone you are trying to input is not valid (for australia)
 <br></br>
 >4. (CUSTOMER EMAIL) - You will have to type the same email as the customer you registered in the previous command.
 <br></br>
->5. (DELIVERY LOCATION) - You will have to set the delivery location (the last location in your route map)
+>5. (DELIVERY LOCATION) - You will have to set the delivery location (you have to use one of the avaible cities in the route map)
 
 > * BE CAREFUL - When you create a package you must put а valid city (one of the cities from the route you created) That way you are setting the arrival location of the package. If you put anything else that is not in the route the system will throw you an ERROR.
-> * BE CAREFUL (2) - We are only working with international shipping so we are not shipping in the same city. The system will throw you again ERROR.
 #### COMMAND:
 
 `createpackage (PACKAGE ID) (PRODUCT NAME) (PACKAGE KG) (CUSTOMER EMAIL) (DELIVERY LOCATION)`
@@ -327,7 +329,7 @@ Invalid package kilograms (too high or negative)
 Invalid package kilograms (too high or negative)
 ```
 
-## 5. ASSIGN PACKAGE 🚚📦
+## 5. ASSIGN PACKAGE 
 ### [Click to return to the top](#every-command-in-our-system)
 >**Before typing out every parameter you have to create the command - assignpackage**
 
@@ -378,7 +380,7 @@ Customer with this email does not exist!
 'Brisbane' is not in list
 ```
 
-## 6. EMPLOYEE LOGIN 🔑
+## 6. EMPLOYEE LOGIN 
 ### [Click to return to the top](#every-command-in-our-system)
 >**Before typing out every parameter you have to create the command - employeelogin**
 
@@ -417,9 +419,12 @@ Routes: No information
 Packages: No information
 ------------------------------------------------------------------------------
 EMPLOYEE VIEW INFO:
-Trucks: 1003 - Scania
-Routes: 1 - Melbourne->Adelaide->AliceSprings
-Packages: 1 - Televizor - 23 - AliceSprings
+Total Trucks (1):
+1. ID: 1003 - Scania
+Total Routes (1):
+1. ID: 1 - Melbourne->Adelaide->AliceSprings
+Total Packages (1):
+1. ID: 1 - Televizor - 23 - AliceSprings
 ------------------------------------------------------------------------------
 
 INVALID OUTPUT:
@@ -427,7 +432,7 @@ INVALID OUTPUT:
 Incorrect password!
 ```
 
-## 7. MANAGER LOGIN 🗝
+## 7. MANAGER LOGIN 
 ### [Click to return to the top](#every-command-in-our-system)
 >**Before typing out every parameter you have to create the command - managerlogin**
 
@@ -472,8 +477,8 @@ INVALID OUTPUT:
 Incorrect password!
 ```
 
-# VALID PROGRAM INPUT:
-
+# VALID PROGRAM SERVICING SHIPMENTS:
+### [Click to return to the top](#every-command-in-our-system)
 ### This is example of how the system works:
 
 > It shows 3 customers packages being transferred by different trucks on different routs. Our system will even show you the expected arrival time for every single destination. If you have done everything correctly, you will be ready to service a shipment.
@@ -509,6 +514,7 @@ Truck Scania with id: [1003] was created!
 Truck Scania with id: [1011] was created!
 ------------------------------------------------------------------------------
 Truck Scania with id: [1027] was created!
+------------------------------------------------------------------------------
 Route with id: [1] has been created:
 Route: [Melbourne->Adelaide->AliceSprings]
 Assigned to truck: [1003] Scania
@@ -564,24 +570,24 @@ Kilograms left on the truck: (5990)
 Status: PROCESSING
 ------------------------------------------------------------------------------
 MANAGER VIEW INFO:
-Customers (3):
+Total Customers (3):
 1. Sydney - Borislav - Bonev - 0899999999 - bobi@abv.bg
 2. Melbourne - Ivaylo - Petrov - 0899568999 - ivaylo@abv.bg
 3. Brisbane - Mario - Stanoychev - 0849567999 - mario@abv.bg
 ------------------------------------------------------------------------------
-
 EMPLOYEE VIEW INFO:
-Trucks (3):
-1. 1003 - Scania
-2. 1011 - Scania
-3. 1027 - Scania
-Routes (3):
-1. 1 - Melbourne->Adelaide->AliceSprings
-2. 2 - Sydney->Adelaide->AliceSprings->Perth
-3. 3 - Brisbane->AliceSprings->Adelaide
-Packages (3):
-1. 1 - Televizor - 23 - Adelaide
-2. 2 - Fridge - 50 - AliceSprings
-3. 3 - Chair - 10 - Perth
+Total Trucks (3):
+1. ID: 1003 - Scania
+2. ID: 1011 - Scania
+3. ID: 1027 - Scania
+Total Routes (3):
+1. ID: 1 - Melbourne->Adelaide->AliceSprings
+2. ID: 2 - Sydney->Adelaide->AliceSprings->Perth
+3. ID: 3 - Brisbane->AliceSprings->Adelaide
+Total Packages (3):
+1. ID: 1 - Televizor - 23 - Adelaide
+2. ID: 2 - Fridge - 50 - AliceSprings
+3. ID: 3 - Chair - 10 - Perth
 ------------------------------------------------------------------------------
 ```
+# This employee handbook was brought to you by Mario|Borislav|Ivailo 
