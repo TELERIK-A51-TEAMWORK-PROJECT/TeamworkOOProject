@@ -15,8 +15,7 @@ class TestCreateTruckCommand(unittest.TestCase):
 
         expected_result = (
             '------------------------------------------------------------------------------\n'
-            'Truck Scania with id: [1003] was created!\n'
-            '------------------------------------------------------------------------------'
+             'Truck Scania with id: [1003] was created!'
         )
         self.assertEqual(result, expected_result)
         self.assertTrue(self.app_data.vehicle_exists(1003))

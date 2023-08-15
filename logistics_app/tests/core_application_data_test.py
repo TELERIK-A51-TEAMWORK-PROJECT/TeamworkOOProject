@@ -18,11 +18,11 @@ class TestApplicationData(unittest.TestCase):
         self.assertEqual(len(self.app_data.routes), 1)
         
     def test_create_customer(self):
-        customer = self.app_data.create_customer("Melbourne", "John", "Doe", "1234567890", "john@example.com")
+        customer = self.app_data.create_customer("Melbourne", "Borislav", "Bonev", "1234567890", "john@abv.bg")
         self.assertEqual(len(self.app_data.customers), 1)
         
     def test_create_package(self):
-        package = self.app_data.create_package(1, "Package1", 10, "john@example.com", "Melbourne")
+        package = self.app_data.create_package(1, "Package1", 10, "john@abv.bg", "Melbourne")
         self.assertEqual(len(self.app_data.packages), 1)
         
     def test_find_truck_by_id(self):
@@ -36,12 +36,12 @@ class TestApplicationData(unittest.TestCase):
         self.assertTrue(isinstance(route, RouteOfTrucks))
         
     def test_find_customer_by_email(self):
-        self.app_data.create_customer("Melbourne->AliceSprings", "John", "Doe", "1234567890", "john@example.com")
-        customer = self.app_data.find_customer_byemail("john@example.com")
+        self.app_data.create_customer("Melbourne->AliceSprings", "John", "Doe", "1234567890", "john@abv.bg")
+        customer = self.app_data.find_customer_byemail("john@abv.bg")
         self.assertTrue(isinstance(customer, Customer))
         
     def test_find_package_by_id(self):
-        self.app_data.create_package(1, "Package1", 10, "john@example.com", "Melbourne")
+        self.app_data.create_package(1, "Package1", 10, "john@abv.bg", "Melbourne")
         package = self.app_data.find_package_byid(1)
         self.assertTrue(isinstance(package, Package))
         
@@ -54,6 +54,6 @@ class TestApplicationData(unittest.TestCase):
         self.assertTrue(self.app_data.route_exits(1))
         
     def test_package_exists(self):
-        self.app_data.create_package(1, "Package1", 10, "john@example.com", "Melbourne")
+        self.app_data.create_package(1, "Package1", 10, "john@abv.bg", "Melbourne")
         self.assertTrue(self.app_data.package_exits(1))
         

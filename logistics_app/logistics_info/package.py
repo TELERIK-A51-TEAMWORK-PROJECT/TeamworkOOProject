@@ -36,7 +36,7 @@ class Package:
     
     @package_kg.setter
     def package_kg(self,value):
-        if value < 0 or value > 100:
+        if value < 0 or value > 3000:
             raise ValueError(f'Invalid package kilograms (too high or negative)')
         self._package_kg = value
     
