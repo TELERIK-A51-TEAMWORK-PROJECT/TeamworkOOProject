@@ -511,21 +511,20 @@ end
 ------------------------------------------------------------------------------
 Truck Scania with id: [1003] was created!
 ------------------------------------------------------------------------------
-Truck Scania with id: [1011] was created!
+Truck Man with id: [1011] was created!
 ------------------------------------------------------------------------------
-Truck Scania with id: [1027] was created!
-------------------------------------------------------------------------------
+Truck Actros with id: [1027] was created!
 Route with id: [1] has been created:
 Route: [Melbourne->Adelaide->AliceSprings]
 Assigned to truck: [1003] Scania
 ------------------------------------------------------------------------------
 Route with id: [2] has been created:
 Route: [Sydney->Adelaide->AliceSprings->Perth]
-Assigned to truck: [1011] Scania
+Assigned to truck: [1011] Man
 ------------------------------------------------------------------------------
 Route with id: [3] has been created:
 Route: [Brisbane->AliceSprings->Adelaide]
-Assigned to truck: [1027] Scania
+Assigned to truck: [1027] Actros
 ------------------------------------------------------------------------------
 Customer was created in (Sydney):
 Info: [Borislav Bonev] | Number: [0899999999] | Email: (bobi@abv.bg)
@@ -549,7 +548,7 @@ Info of package: Name: Chair | Kilograms: 10 | Customer Email: (bobi@abv.bg) Del
 Wating for truck to pick up..
 ------------------------------------------------------------------------------
 Package [1] has been assigned to truck:
-Truck Info: [1027] Scania
+Truck Info: [1027] Actros
 Current route: Brisbane -> AliceSprings -> Adelaide
 Departure time - Expected delivery time in different locations: Brisbane->(08/07/2023, 10:00:00) | AliceSprings->(08/08/2023, 03:00:00) | Adelaide->(08/08/2023, 20:00:00)
 Kilograms left on the truck: (6977)
@@ -563,7 +562,7 @@ Kilograms left on the truck: (4950)
 Status: PROCESSING
 ------------------------------------------------------------------------------
 Package [3] has been assigned to truck:
-Truck Info: [1011] Scania
+Truck Info: [1011] Man
 Current route: Sydney -> Adelaide -> AliceSprings -> Perth
 Departure time - Expected delivery time in different locations: Sydney->(08/07/2023, 10:00:00) | Adelaide->(08/08/2023, 14:00:00) | AliceSprings->(08/09/2023, 18:00:00) | Perth->(08/10/2023, 22:00:00)
 Kilograms left on the truck: (5990)
@@ -575,11 +574,12 @@ Total Customers (3):
 2. Melbourne - Ivaylo - Petrov - 0899568999 - ivaylo@abv.bg
 3. Brisbane - Mario - Stanoychev - 0849567999 - mario@abv.bg
 ------------------------------------------------------------------------------
+
 EMPLOYEE VIEW INFO:
 Total Trucks (3):
 1. ID: 1003 - Scania
-2. ID: 1011 - Scania
-3. ID: 1027 - Scania
+2. ID: 1011 - Man
+3. ID: 1027 - Actros
 Total Routes (3):
 1. ID: 1 - Melbourne->Adelaide->AliceSprings
 2. ID: 2 - Sydney->Adelaide->AliceSprings->Perth

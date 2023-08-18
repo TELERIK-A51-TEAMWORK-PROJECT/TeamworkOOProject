@@ -18,17 +18,15 @@ class ApplicationData:
     def find_nameoftruck_by_id(id):
         name = ''
         #Scania
-        if id >= 1001 or id <= 1010:
+        if 1001 <= id <= 1010:
             name = 'Scania'
-            return name
         #Man
-        if id >= 1011 or id <= 1025:
+        if 1011 <= id <= 1025:
             name = 'Man'
-            return name
         #Actros
-        if id >= 1026 or id <= 1040:
+        if 1026 <= id <= 1040:
             name = 'Actros'
-            return name
+        return name
 
     @property
     def customers(self):
