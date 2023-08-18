@@ -28,16 +28,16 @@ class TestPackage(unittest.TestCase):
         self.assertInvalidPackage(-1, "Invalid ID Package", 15, "###&@abv.bg", "Wrong destination")
 
     def test_invalid_package_name(self):
-        self.assertInvalidPackage(2, "A", 20, "test@example.com", "Wrong destination")
+        self.assertInvalidPackage(2, "A", 20, "john@abv.bg", "Wrong destination")
         self.assertInvalidPackage(3, "This package name is way too long and invalid", 25, "###&@abv.bg", "Wrong destination")
 
     def test_invalid_package_kg(self):
-        self.assertInvalidPackage(4, "Heavy Package", -5, "test@example.com", "Wrong destination")
-        self.assertInvalidPackage(5, "Too Heavy Package", 150, "test@example.com", "Wrong destination")
+        self.assertInvalidPackage(4, "Heavy Package", -5, "john@abv.bg", "Wrong destination")
+        self.assertInvalidPackage(5, "Too Heavy Package", 150, "john@abv.bg", "Wrong destination")
 
     def test_invalid_email(self):
         self.assertInvalidPackage(6, "Invalid Email Package", 30, "###&@abv.bg", "Destination G")
-        self.assertInvalidPackage(7, "Another Invalid Email Package", 40, "test@example.com!", "Destination H")
+        self.assertInvalidPackage(7, "Another Invalid Email Package", 40, "john@abv.bg!", "Destination H")
 
     def test_invalid_email_length(self):
         self.assertInvalidPackage(8, "Email Length Package", 50, "a@b.c", "Destination I")

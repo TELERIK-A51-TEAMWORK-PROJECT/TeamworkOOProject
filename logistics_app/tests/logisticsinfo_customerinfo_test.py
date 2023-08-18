@@ -26,17 +26,17 @@ class TestCustomerClass(unittest.TestCase):
 
 
     def test_invalid_first_name(self):
-        self.assertInvalidCustomer("Location", "123", "Doe", "1234567890", "john.doe@example.com")
+        self.assertInvalidCustomer("Location", "123", "Bonev", "1234567890", "john.doe@abv.bg")
     
     def test_invalid_last_name(self):
-        self.assertInvalidCustomer("Location", "John", "123", "1234567890", "john.doe@example.com")
+        self.assertInvalidCustomer("Location", "Ivalo", "123", "1234567890", "john.doe@abv.bg")
     
     def test_invalid_telephone_characters(self):
-        self.assertInvalidCustomer("Location", "John", "Doe", "12a4567890", "john.doe@example.com")
+        self.assertInvalidCustomer("Location", "Mario", "Stanoichev", "12a4567890", "john.doe@eabv.bg")
     
     def test_invalid_telephone_length(self):
-        self.assertInvalidCustomer("Location", "John", "Doe", "1234567", "john.doe@example.com")
+        self.assertInvalidCustomer("Location", "Borislav", "Bonev", "1234567", "john.doe@abv.bg")
     
     def test_invalid_email_characters(self):
-        self.assertInvalidCustomer("Location", "John", "Doe", "1234567890", "john.doe@example!com")
+        self.assertInvalidCustomer("Location", "Ivailo", "Georgiev", "1234567890", "john.doe@abv!")
     
